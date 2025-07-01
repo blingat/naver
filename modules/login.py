@@ -8,56 +8,23 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utils.chrome_setup import ChromeSetup
 
 class NaverLogin:
     def __init__(self, config, logger=None):
         self.config = config
         self.driver = None
         self.logger = logger
+        self.chrome_setup = ChromeSetup(config, logger)
 
     def start_browser(self):
-        options = uc.ChromeOptions()
-        options.add_argument(f"--user-data-dir={self.config['chrome_profile_path']}")
-        options.add_argument('--lang=ko-KR')
-        options.add_argument('--disable-blink-features=AutomationControlled')
-        options.add_argument('--disable-extensions')
-        options.add_argument('--disable-automation')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument('--no-sandbox')
-        
-        # 쿠키 및 세션 관련 옵션 강화
-        options.add_argument('--enable-cookies')
-        options.add_argument('--disable-web-security')
-        options.add_argument('--disable-features=VizDisplayCompositor')
-        options.add_argument('--disable-background-timer-throttling')
-        options.add_argument('--disable-renderer-backgrounding')
-        options.add_argument('--disable-backgrounding-occluded-windows')
-        
-        # User-Agent 설정으로 자동화 탐지 회피
-        options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-        
-        width = self.config.get('window_width', 1200)
-        height = self.config.get('window_height', 900)
-        scale = self.config.get('window_scale', 1.0)
-        options.add_argument(f"--window-size={width},{height}")
-        if scale != 1.0:
-            options.add_argument(f"--force-device-scale-factor={scale}")
-        
         try:
-            self.driver = uc.Chrome(options=options, driver_executable_path=self.config['chromedriver_path'])
-            # 창 크기 직접 조정
-            self.driver.set_window_size(width, height)
-            
-            # 자동화 탐지 방지를 위한 스크립트 실행
-            self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-            self.driver.execute_script("Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]})")
-            self.driver.execute_script("Object.defineProperty(navigator, 'languages', {get: () => ['ko-KR', 'ko']})")
-            
+            self.driver = self.chrome_setup.create_chrome_driver()
+            return self.driver
         except Exception as e:
             if self.logger:
                 self.logger.log(f"[로그인] 크롬 실행 오류: {e}")
             raise
-        return self.driver
     
     def save_cookies(self, user_id):
         """로그인 후 쿠키 저장 - 페이지 이동 없이"""

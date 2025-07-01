@@ -23,7 +23,7 @@ def load_config():
 
 def validate_config(config):
     """설정 파일 검증"""
-    required_keys = ['chrome_profile_path', 'chromedriver_path', 'max_action_per_run']
+    required_keys = ['max_action_per_run']
     for key in required_keys:
         if key not in config:
             print(f"[오류] config.json에 {key} 설정이 없습니다.")
@@ -38,40 +38,12 @@ def check_required_files(file_list):
             missing_files.append(file_path)
     return missing_files
 
-def initialize_chrome_driver(config):
-    """Chrome 드라이버 초기화"""
+def initialize_chrome_driver(config, logger=None):
+    """Chrome 드라이버 초기화 (ChromeSetup 사용)"""
     try:
-        # Chrome 옵션 설정
-        chrome_options = Options()
-        chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-        chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        chrome_options.add_experimental_option('useAutomationExtension', False)
-        chrome_options.add_argument("--disable-extensions")
-        chrome_options.add_argument("--no-sandbox")
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        
-        # 창 크기 설정
-        window_width = config.get('window_width', 1100)
-        window_height = config.get('window_height', 1100)
-        chrome_options.add_argument(f"--window-size={window_width},{window_height}")
-        
-        # 크롬 프로필 설정
-        profile_path = config.get('chrome_profile_path', '')
-        if profile_path and os.path.exists(profile_path):
-            chrome_options.add_argument(f"--user-data-dir={profile_path}")
-        
-        # ChromeDriver 서비스 설정
-        chromedriver_path = config.get('chromedriver_path', 'chromedriver-win64/chromedriver.exe')
-        service = Service(chromedriver_path)
-        
-        # 드라이버 생성
-        driver = webdriver.Chrome(service=service, options=chrome_options)
-        
-        # 자동화 탐지 방지
-        driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
-        
-        return driver
-        
+        from utils.chrome_setup import ChromeSetup
+        chrome_setup = ChromeSetup(config, logger)
+        return chrome_setup.create_chrome_driver()
     except Exception as e:
         raise Exception(f"Chrome 드라이버 초기화 실패: {e}")
 
@@ -182,18 +154,7 @@ def handle_comment_automation():
         input("\nEnter를 누르면 메인 메뉴로 돌아갑니다...")
         return
     
-    # 필수 파일 확인
-    chromedriver_path = config.get('chromedriver_path', 'chromedriver-win64/chromedriver.exe')
-    required_files = [chromedriver_path]
-    missing_files = check_required_files(required_files)
-    if missing_files:
-        print("❌ 필수 파일이 없습니다:")
-        for file in missing_files:
-            print(f"   - {file}")
-        print(f"\n💡 config.json에서 chromedriver_path를 확인해주세요.")
-        print(f"   현재 설정: {chromedriver_path}")
-        input("\nEnter를 누르면 메인 메뉴로 돌아갑니다...")
-        return
+    # Chrome 환경 확인 제거 (NaverLogin에서 처리)
     
     # 1. 로그인 정보 입력받기
     print("\n[1단계] 네이버 로그인")
@@ -287,6 +248,47 @@ def handle_comment_automation():
                 login.quit()
             except:
                 pass
+
+def handle_chrome_setup_test():
+    """Chrome 환경 설정 테스트 핸들러"""
+    logger = Logger()
+    config = load_config()
+    
+    print("\n==== Chrome 환경 설정 테스트 ====")
+    
+    try:
+        from utils.chrome_setup import ChromeSetup
+        chrome_setup = ChromeSetup(config, logger)
+        
+        print("🔍 Chrome 환경을 확인하는 중...")
+        
+        # Chrome 환경 전체 설정 테스트
+        if chrome_setup.setup_chrome_environment():
+            print("\n✅ Chrome 환경 설정이 완료되었습니다!")
+            
+            # 브라우저 실행 테스트
+            test_browser = input("\n브라우저 실행 테스트를 하시겠습니까? (y/N): ").strip().lower()
+            if test_browser == 'y':
+                print("\n🚀 브라우저를 실행하는 중...")
+                try:
+                    driver = chrome_setup.create_chrome_driver()
+                    driver.get("https://www.naver.com")
+                    print("✅ 브라우저 실행 성공!")
+                    print("💡 브라우저가 열렸습니다. 확인 후 아무 키나 누르세요.")
+                    input()
+                    driver.quit()
+                    print("✅ 브라우저 종료 완료")
+                except Exception as e:
+                    print(f"❌ 브라우저 실행 실패: {e}")
+                    logger.log(f"[Chrome테스트] 브라우저 실행 실패: {e}")
+        else:
+            print("\n❌ Chrome 환경 설정에 실패했습니다.")
+            
+    except Exception as e:
+        print(f"❌ Chrome 환경 테스트 실패: {e}")
+        logger.log(f"[Chrome테스트] 환경 테스트 실패: {e}")
+    
+    input("\nEnter를 누르면 메인 메뉴로 돌아갑니다...")
 
 def handle_api_test():
     """Gemini API 테스트 핸들러"""
@@ -398,14 +400,15 @@ def handle_api_test():
 def main_menu():
     """메인 메뉴"""
     while True:
-        print("\n" + "="*35)
+        print("\n" + "="*40)
         print("==== 네이버 블로그 자동화 ====")
         print("1. 공감 자동화")
         print("2. 서이추 자동화")
         print("3. 댓글 자동화")
+        print("8. Chrome 환경 설정 테스트")
         print("9. Gemini/OpenAI API 테스트")
         print("0. 종료")
-        print("="*35)
+        print("="*40)
         
         try:
             choice = input("번호를 입력하세요: ").strip()
@@ -420,10 +423,12 @@ def main_menu():
                 handle_neighbor_add()
             elif choice == '3':
                 handle_comment_automation()
+            elif choice == '8':
+                handle_chrome_setup_test()
             elif choice == '9':
                 handle_api_test()
             else:
-                print("잘못된 입력입니다. 0~3, 9 중에서 선택하세요.")
+                print("잘못된 입력입니다. 0~3, 8~9 중에서 선택하세요.")
                 
         except KeyboardInterrupt:
             print("\n\n프로그램을 종료합니다.")

@@ -305,43 +305,136 @@ class CommentAutomation:
             print(f"     ⚠️  URL 유효성 검사 오류: {e}")
             return False
     
-    def click_like_button(self):
-        """공감 버튼 클릭"""
+    def extract_blog_content_preview(self):
+        """블로그 내용 미리보기 추출 (iframe 내에서)"""
         try:
-            # 공감 버튼 셀렉터들
-            like_selectors = [
-                ".btn_sympathy",
-                ".u_likeit_layer .u_likeit_list_btn",
-                "[data-clk='smp.good']",
-                ".area_sympathy .btn_sympathy"
+            # iframe으로 전환
+            try:
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.NAME, 'mainFrame'))
+                )
+                self.driver.switch_to.frame('mainFrame')
+                time.sleep(2)
+            except Exception as e:
+                print(f"     ⚠️  iframe 전환 실패 (내용 추출): {e}")
+                return ""
+            
+            # 블로그 본문 내용 추출
+            content_selectors = [
+                ".se-main-container",  # 스마트에디터 3.0
+                ".se-component-content",  # 스마트에디터 구성요소
+                "#postViewArea",  # 기본 포스트 영역
+                ".post-view",  # 포스트 뷰
+                ".blog-content",  # 블로그 내용
+                ".__se_object",  # 스마트에디터 객체
+                ".post_ct",  # 포스트 내용
+                ".entry-content"  # 엔트리 내용
             ]
             
-            for selector in like_selectors:
+            content_text = ""
+            for selector in content_selectors:
                 try:
-                    like_btn = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, selector)))
-                    
-                    # 이미 공감했는지 확인
-                    if "on" in like_btn.get_attribute("class") or "active" in like_btn.get_attribute("class"):
-                        print("     💖 이미 공감한 글입니다")
-                        return True
-                    
-                    like_btn.click()
-                    time.sleep(1)
-                    print("     💖 공감 완료!")
-                    return True
-                    
+                    content_elements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+                    if content_elements:
+                        for element in content_elements[:3]:  # 처음 3개 요소만
+                            text = element.text.strip()
+                            if text and len(text) > 20:  # 의미있는 텍스트만
+                                content_text += text + " "
+                                if len(content_text) > 300:  # 300자 정도면 충분
+                                    break
+                        if content_text:
+                            break
                 except:
                     continue
             
-            print("     ⚠️  공감 버튼을 찾을 수 없습니다")
-            return False
+            # 내용이 너무 길면 자르기
+            if len(content_text) > 500:
+                content_text = content_text[:297] + "..."
+            
+            if content_text:
+                print(f"     📖 내용 미리보기 추출: {content_text[:50]}...")
+            else:
+                print("     ⚠️  내용 미리보기를 추출할 수 없습니다")
+            
+            return content_text.strip()
             
         except Exception as e:
-            print(f"     ❌ 공감 버튼 클릭 오류: {e}")
-            return False
+            print(f"     ⚠️  내용 추출 오류: {e}")
+            return ""
+        finally:
+            # iframe에서 나오기
+            try:
+                self.driver.switch_to.default_content()
+            except:
+                pass
     
-    def write_comment(self, blog_title):
-        """댓글 작성"""
+    def click_like_button(self):
+        """공감 버튼 클릭 (iframe 내에서)"""
+        try:
+            # iframe으로 전환
+            try:
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.NAME, 'mainFrame'))
+                )
+                self.driver.switch_to.frame('mainFrame')
+                time.sleep(2)
+                print("     🖼️  iframe으로 전환 완료")
+            except Exception as e:
+                print(f"     ❌ iframe 전환 실패: {e}")
+                return False
+            
+            # 공감 영역 확인
+            try:
+                sympathy_area = self.driver.find_element(By.CSS_SELECTOR, ".area_sympathy")
+                print("     ✅ 공감 영역 발견")
+            except:
+                print("     ⏭️  공감 버튼이 없는 글입니다 (PASS)")
+                return True
+            
+            # 공감 버튼 찾기 (성공 케이스 기준)
+            try:
+                like_btn = sympathy_area.find_element(By.CSS_SELECTOR, ".u_likeit_list_btn._button[data-type='like']")
+                print("     ✅ 공감 버튼 발견")
+            except:
+                print("     ⏭️  공감 버튼을 찾을 수 없습니다 (PASS)")
+                return True
+            
+            # 공감 상태 확인
+            class_attr = like_btn.get_attribute("class") or ""
+            aria_pressed = like_btn.get_attribute("aria-pressed") or "false"
+            
+            # off 상태 확인 (공감하지 않은 상태)
+            if " off " in f" {class_attr} " or class_attr.endswith(" off"):
+                print("     🤍 공감하지 않은 상태 - 공감 버튼 클릭")
+                
+                # JavaScript로 클릭
+                self.driver.execute_script("arguments[0].click();", like_btn)
+                time.sleep(2)
+                
+                # 클릭 후 상태 확인
+                new_aria_pressed = like_btn.get_attribute("aria-pressed") or "false"
+                if new_aria_pressed == "true":
+                    print("     💖 공감 완료!")
+                else:
+                    print("     🤔 공감 클릭 시도 완료")
+                
+                return True
+            else:
+                print("     💖 이미 공감한 글입니다 (PASS)")
+                return True
+                
+        except Exception as e:
+            print(f"     ❌ 공감 버튼 처리 오류: {e}")
+            return True
+        finally:
+            # iframe에서 나오기
+            try:
+                self.driver.switch_to.default_content()
+            except:
+                pass
+    
+    def write_comment(self, blog_title, blog_content_preview=""):
+        """댓글 작성 (iframe 내에서)"""
         try:
             # AI로 댓글 생성
             if not self.gemini:
@@ -349,7 +442,7 @@ class CommentAutomation:
                 return False, "API 미설정"
             
             print("     🤖 AI 댓글 생성 중...")
-            comment_text, error = self.gemini.generate_comment(blog_title)
+            comment_text, error = self.gemini.generate_comment(blog_title, blog_content_preview)
             
             if error:
                 print(f"     ❌ 댓글 생성 실패: {error}")
@@ -357,62 +450,87 @@ class CommentAutomation:
             
             print(f"     💬 생성된 댓글: {comment_text}")
             
-            # 댓글 입력창 찾기
-            comment_selectors = [
-                "textarea[placeholder*='댓글']",
-                ".comment_inbox textarea",
-                ".area_comment textarea",
-                "#comment_inbox"
+            # iframe으로 전환
+            try:
+                WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.NAME, 'mainFrame'))
+                )
+                self.driver.switch_to.frame('mainFrame')
+                time.sleep(2)
+                print("     🖼️  댓글 작성을 위해 iframe으로 전환")
+            except Exception as e:
+                print(f"     ❌ iframe 전환 실패: {e}")
+                return False, "iframe 전환 실패"
+            
+            # 댓글 쓰기 버튼 클릭 (성공 케이스 기준)
+            comment_write_selectors = [
+                ".btn_comment.pcol2._cmtList",  # 공감 버튼 있는 글
+                ".area_comment .btn_comment.pcol2._cmtList"  # 공감 버튼 없는 글
             ]
             
-            comment_input = None
-            for selector in comment_selectors:
+            comment_write_clicked = False
+            for selector in comment_write_selectors:
                 try:
-                    comment_input = self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
-                    if comment_input.is_enabled():
-                        break
+                    comment_btn = WebDriverWait(self.driver, 5).until(
+                        EC.element_to_be_clickable((By.CSS_SELECTOR, selector))
+                    )
+                    comment_btn.click()
+                    time.sleep(2)
+                    print("     ✅ 댓글 쓰기 버튼 클릭")
+                    comment_write_clicked = True
+                    break
                 except:
                     continue
             
-            if not comment_input:
+            if not comment_write_clicked:
+                print("     ❌ 댓글 쓰기 버튼을 찾을 수 없습니다")
+                return False, "댓글 쓰기 버튼 없음"
+            
+            # 댓글 입력창 찾기 (성공 케이스 기준)
+            try:
+                comment_input = WebDriverWait(self.driver, 5).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, "div[contenteditable='true'][data-log='RPC.input']"))
+                )
+                print("     ✅ 댓글 입력창 발견")
+            except:
                 print("     ❌ 댓글 입력창을 찾을 수 없습니다")
                 return False, "댓글 입력창 없음"
             
-            # 댓글 입력창이 비활성화되어 있는지 확인
-            if not comment_input.is_enabled():
-                print("     ❌ 댓글 입력창이 비활성화되어 있습니다")
-                return False, "댓글 입력창 비활성화"
+            # 댓글 입력 (contenteditable div)
+            try:
+                self.driver.execute_script("""
+                    arguments[0].focus();
+                    arguments[0].innerHTML = arguments[1];
+                    arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
+                """, comment_input, comment_text)
+                time.sleep(1)
+                print("     ✅ 댓글 입력 완료")
+            except Exception as e:
+                print(f"     ❌ 댓글 입력 실패: {e}")
+                return False, f"댓글 입력 실패: {e}"
             
-            # 댓글 입력
-            comment_input.clear()
-            comment_input.send_keys(comment_text)
-            time.sleep(1)
-            
-            # 댓글 등록 버튼 찾기 및 클릭
-            submit_selectors = [
-                ".btn_register",
-                ".comment_register",
-                "button[type='submit']",
-                ".btn_comment_register"
-            ]
-            
-            for selector in submit_selectors:
-                try:
-                    submit_btn = self.driver.find_element(By.CSS_SELECTOR, selector)
-                    if submit_btn.is_enabled():
-                        submit_btn.click()
-                        time.sleep(2)
-                        print("     ✅ 댓글 작성 완료!")
-                        return True, None
-                except:
-                    continue
-            
-            print("     ❌ 댓글 등록 버튼을 찾을 수 없습니다")
-            return False, "등록 버튼 없음"
+            # 등록 버튼 클릭 (성공 케이스 기준)
+            try:
+                submit_btn = WebDriverWait(self.driver, 5).until(
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-log='RPC.write']"))
+                )
+                submit_btn.click()
+                time.sleep(2)
+                print("     ✅ 댓글 등록 완료!")
+                return True, None
+            except:
+                print("     ❌ 댓글 등록 버튼을 찾을 수 없습니다")
+                return False, "등록 버튼 없음"
             
         except Exception as e:
             print(f"     ❌ 댓글 작성 오류: {e}")
             return False, f"댓글 작성 오류: {e}"
+        finally:
+            # iframe에서 나오기
+            try:
+                self.driver.switch_to.default_content()
+            except:
+                pass
     
     def process_single_post(self, post_info):
         """단일 게시글 처리"""
@@ -431,11 +549,14 @@ class CommentAutomation:
             self.driver.get(url)
             time.sleep(3)
             
+            # 블로그 내용 미리보기 추출
+            content_preview = self.extract_blog_content_preview()
+            
             # 공감 버튼 클릭
             self.click_like_button()
             
-            # 댓글 작성
-            success, error = self.write_comment(title)
+            # 댓글 작성 (제목과 내용 미리보기 모두 전달)
+            success, error = self.write_comment(title, content_preview)
             
             if success:
                 # 댓글 작성 기록 저장

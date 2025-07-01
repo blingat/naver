@@ -244,13 +244,21 @@ class NeighborAddAutomation:
                 WebDriverWait(self.driver, 2).until(EC.alert_is_present())
                 alert = self.driver.switch_to.alert
                 alert_text = alert.text
-                if '진행중' in alert_text:
+                if '진행중' in alert_text or '신청' in alert_text:
                     alert.accept()
                     print("    ⏭️  이미 서로이웃 신청 진행중")
                     self.logger.log("[서이추] 이미 서로이웃 신청 진행중")
-                    # 팝업 창 닫고 메인 창으로 돌아가기
-                    self.driver.close()
-                    self.driver.switch_to.window(main_window)
+                    # 팝업 창 안전하게 닫고 메인 창으로 돌아가기
+                    try:
+                        if len(self.driver.window_handles) > 1:
+                            self.driver.close()
+                        self.driver.switch_to.window(main_window)
+                    except Exception as e:
+                        self.logger.log(f"[서이추] 창 전환 중 오류 (무시): {e}")
+                        try:
+                            self.driver.switch_to.window(main_window)
+                        except:
+                            pass
                     return "pass"
             except TimeoutException:
                 # 알림창이 없으면 정상 진행
@@ -348,13 +356,17 @@ class NeighborAddAutomation:
             
             # 팝업 창 닫고 메인 창으로 돌아가기 (닫기 버튼으로 안 닫힌 경우)
             try:
-                if len(self.driver.window_handles) > 1:
+                # 현재 창이 팝업창인지 확인 후 닫기
+                current_window = self.driver.current_window_handle
+                if current_window != main_window and len(self.driver.window_handles) > 1:
                     self.driver.close()
                 self.driver.switch_to.window(main_window)
-            except:
+            except Exception as e:
+                self.logger.log(f"[서이추] 팝업창 닫기 중 오류 (무시): {e}")
                 try:
                     self.driver.switch_to.window(main_window)
-                except:
+                except Exception as e2:
+                    self.logger.log(f"[서이추] 메인창 전환 중 오류 (무시): {e2}")
                     pass
                 
             return result
@@ -363,11 +375,22 @@ class NeighborAddAutomation:
             self.logger.log(f"[서이추] 이웃추가 프로세스 실패: {e}")
             print(f"    ❌ 이웃추가 실패: {e}")
             
-            # 오류 시에도 메인 창으로 돌아가기
+            # 오류 시에도 안전하게 메인 창으로 돌아가기
             try:
+                # 팝업창이 열려있으면 닫기
+                if len(self.driver.window_handles) > 1:
+                    current_window = self.driver.current_window_handle
+                    if current_window != main_window:
+                        self.driver.close()
                 self.driver.switch_to.window(main_window)
-            except:
-                pass
+            except Exception as e2:
+                self.logger.log(f"[서이추] 오류 후 창 전환 실패 (무시): {e2}")
+                try:
+                    # 최후의 수단으로 새 탭 열기
+                    self.driver.execute_script("window.open('about:blank', '_blank');")
+                    self.driver.switch_to.window(self.driver.window_handles[-1])
+                except:
+                    pass
                 
             return "fail"
 

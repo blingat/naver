@@ -2,48 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# 가상환경
-venv/
-env/
-ENV/
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-
-# 로그 파일
-*.log
-log.txt
-
-# 쿠키 및 세션 파일
-cookies/
-*.pkl
-
-# 개인 설정 및 민감한 정보
-config.json
-*.txt
-!requirements.txt
-!README.md
 
 # 임시 파일
 TEMP.md
@@ -52,7 +14,4 @@ debug_*.py
 
 # OS 관련
 .DS_Store
-Thumbs.db
-
-# Chrome 프로필
-ChromeProfile/ 
+Thumbs.db 

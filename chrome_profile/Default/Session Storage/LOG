@@ -1,0 +1,20 @@
+2025/07/01-22:55:38.589 3c70 Reusing MANIFEST C:\_KKK\Coding\250701\naver\chrome_profile\Default\Session Storage/MANIFEST-000001
+2025/07/01-22:55:38.601 3c70 Recovering log #164
+2025/07/01-22:55:38.604 3c70 Level-0 table #167: started
+2025/07/01-22:55:38.681 3c70 Level-0 table #167: 250663 bytes OK
+2025/07/01-22:55:38.691 3c70 Delete type=0 #164
+2025/07/01-22:57:48.647 1288 Level-0 table #170: started
+2025/07/01-22:57:48.655 1288 Level-0 table #170: 140523 bytes OK
+2025/07/01-22:57:48.658 1288 Delete type=0 #168
+2025/07/01-22:57:48.659 3c70 Compacting 4@0 + 1@1 files
+2025/07/01-22:57:48.671 3c70 Generated table #171@0: 329 keys, 145107 bytes
+2025/07/01-22:57:48.671 3c70 Compacted 4@0 + 1@1 files => 145107 bytes
+2025/07/01-22:57:48.673 3c70 compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/07/01-22:57:48.674 3c70 Delete type=2 #160
+2025/07/01-22:57:48.674 3c70 Delete type=2 #162
+2025/07/01-22:57:48.674 3c70 Delete type=2 #165
+2025/07/01-22:57:48.674 3c70 Delete type=2 #167
+2025/07/01-22:57:48.674 3c70 Delete type=2 #170
+2025/07/01-22:57:53.058 3c70 Level-0 table #173: started
+2025/07/01-22:57:53.073 3c70 Level-0 table #173: 258037 bytes OK
+2025/07/01-22:57:53.081 3c70 Delete type=0 #169
