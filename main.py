@@ -270,22 +270,50 @@ def handle_chrome_setup_test():
             test_browser = input("\n브라우저 실행 테스트를 하시겠습니까? (y/N): ").strip().lower()
             if test_browser == 'y':
                 print("\n🚀 브라우저를 실행하는 중...")
+                print("📋 상세 로그는 log.txt 파일에서 확인할 수 있습니다.")
                 try:
                     driver = chrome_setup.create_chrome_driver()
-                    driver.get("https://www.naver.com")
                     print("✅ 브라우저 실행 성공!")
+                    
+                    # 네이버 접속 테스트
+                    print("🌐 네이버 접속 테스트 중...")
+                    driver.get("https://www.naver.com")
+                    print(f"✅ 네이버 접속 성공! 현재 URL: {driver.current_url}")
+                    
                     print("💡 브라우저가 열렸습니다. 확인 후 아무 키나 누르세요.")
                     input()
                     driver.quit()
                     print("✅ 브라우저 종료 완료")
                 except Exception as e:
                     print(f"❌ 브라우저 실행 실패: {e}")
+                    print("📋 상세 오류 정보:")
+                    print(f"   - 오류 타입: {type(e).__name__}")
+                    print(f"   - 오류 메시지: {str(e)}")
                     logger.log(f"[Chrome테스트] 브라우저 실행 실패: {e}")
+                    
+                    # 추가 디버깅 정보 제공
+                    print("\n🔧 문제 해결 방법:")
+                    if "session not created" in str(e):
+                        print("   1. 모든 Chrome 브라우저를 종료하세요")
+                        print("   2. 명령어: taskkill /f /im chrome.exe")
+                        print("   3. 잠시 후 다시 시도하세요")
+                    elif "cannot connect" in str(e):
+                        print("   1. Chrome이 올바르게 설치되었는지 확인하세요")
+                        print("   2. 방화벽이나 백신 프로그램을 확인하세요")
+                        print("   3. 관리자 권한으로 실행해보세요")
+                    elif "chrome not reachable" in str(e):
+                        print("   1. Chrome 프로세스가 충돌했을 가능성이 있습니다")
+                        print("   2. PC를 재부팅해보세요")
+                        print("   3. Chrome을 재설치해보세요")
         else:
             print("\n❌ Chrome 환경 설정에 실패했습니다.")
+            print("📋 log.txt 파일에서 상세 오류를 확인하세요.")
             
     except Exception as e:
         print(f"❌ Chrome 환경 테스트 실패: {e}")
+        print("📋 상세 오류 정보:")
+        print(f"   - 오류 타입: {type(e).__name__}")
+        print(f"   - 오류 메시지: {str(e)}")
         logger.log(f"[Chrome테스트] 환경 테스트 실패: {e}")
     
     input("\nEnter를 누르면 메인 메뉴로 돌아갑니다...")

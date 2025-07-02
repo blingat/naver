@@ -14,7 +14,7 @@ class NeighborAddAutomation:
         self.blog_links = []
 
     def search_blogs(self, keyword, count):
-        """키워드로 블로그 검색하여 타겟 목록 확보"""
+        """키워드로 블로그 검색하여 타겟 목록 확보 (스크롤 처리 포함)"""
         max_count = min(count, self.config.get('max_action_per_run', 50))
         search_url = f"https://search.naver.com/search.naver?ssc=tab.blog.all&query={keyword}&sm=tab_opt&nso=so%3Ar%2Cp%3A1m"
         
@@ -22,17 +22,46 @@ class NeighborAddAutomation:
         print(f"\n🔍 '{keyword}' 키워드로 블로그 검색 중...")
         
         self.driver.get(search_url)
-        time.sleep(3)
+        wait_time = self.random_wait(1, 2)  # 페이지 로딩 대기 1-2초 랜덤
+        print(f"    ⏰ 페이지 로딩 대기: {wait_time:.1f}초")
         
         self.blog_links = []
         try:
-            # PRD 명세대로 title_area의 title_link 찾기
-            elements = self.driver.find_elements(By.CSS_SELECTOR, 'div.title_area a.title_link')
+            # 초기 블로그 링크 추출 (30개 미만일 경우 스크롤)
+            target_extract_count = min(30, max_count)  # 30명만 추출하거나 요청한 수만큼
             
-            for el in elements[:max_count]:  # 최대 개수만큼만 추출
-                href = el.get_attribute('href')
-                if href and 'blog.naver.com' in href:
-                    self.blog_links.append(href)
+            while len(self.blog_links) < max_count:
+                # 현재 페이지에서 블로그 링크 추출
+                elements = self.driver.find_elements(By.CSS_SELECTOR, 'div.title_area a.title_link')
+                
+                current_links = []
+                for el in elements:
+                    href = el.get_attribute('href')
+                    if href and 'blog.naver.com' in href and href not in self.blog_links:
+                        current_links.append(href)
+                
+                self.blog_links.extend(current_links)
+                print(f"    📊 현재까지 추출된 블로그: {len(self.blog_links)}개")
+                
+                # 목표 개수에 도달했거나 30개 이상이면 중단
+                if len(self.blog_links) >= max_count or len(self.blog_links) >= 30:
+                    break
+                
+                # 더 많은 결과를 위해 스크롤
+                print(f"    📜 더 많은 결과를 위해 스크롤 중...")
+                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                wait_time = self.random_wait(1, 2)  # 스크롤 후 대기 1-2초 랜덤
+                print(f"    ⏰ 스크롤 후 대기: {wait_time:.1f}초")
+                
+                # 새로운 요소가 로드되었는지 확인
+                new_elements = self.driver.find_elements(By.CSS_SELECTOR, 'div.title_area a.title_link')
+                if len(new_elements) == len(elements):
+                    # 더 이상 새로운 요소가 없으면 중단
+                    print(f"    ⚠️  더 이상 새로운 블로그를 찾을 수 없습니다.")
+                    break
+            
+            # 최대 개수만큼만 자르기
+            self.blog_links = self.blog_links[:max_count]
                     
             self.logger.log(f"[서이추] 추출된 블로그 수: {len(self.blog_links)}")
             print(f"✅ {len(self.blog_links)}개의 타겟 블로그를 찾았습니다.")
@@ -51,7 +80,7 @@ class NeighborAddAutomation:
                 EC.presence_of_element_located((By.NAME, 'mainFrame'))
             )
             self.driver.switch_to.frame('mainFrame')
-            time.sleep(2)
+            wait_time = self.random_wait(0.5, 1)  # iframe 진입 후 대기 0.5-1초로 단축
             
             # PRD에 명시된 셀렉터로 버튼 찾기
             # 1. 정확한 클래스명으로 찾기
@@ -105,7 +134,7 @@ class NeighborAddAutomation:
                         self.driver.switch_to.window(handle)
                         break
                         
-                time.sleep(2)  # 팝업 창 로드 대기
+                wait_time = self.random_wait(0.5, 1)  # 팝업 창 로드 대기 0.5-1초로 단축
                 print("    ✅ 이웃추가 팝업 창으로 전환 완료")
                 
             except TimeoutException:
@@ -130,7 +159,7 @@ class NeighborAddAutomation:
                             cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
                             cancel_btn.click()
                             print("    ✅ 취소 버튼 클릭")
-                            time.sleep(1)
+                            wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
                         except:
                             # 취소 버튼이 없으면 그냥 창 닫기
                             self.driver.close()
@@ -151,7 +180,7 @@ class NeighborAddAutomation:
                                 cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
                                 cancel_btn.click()
                                 print("    ✅ 취소 버튼 클릭")
-                                time.sleep(1)
+                                wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
                             except:
                                 # 취소 버튼이 없으면 그냥 창 닫기
                                 self.driver.close()
@@ -228,7 +257,7 @@ class NeighborAddAutomation:
                 next_btn.click()
                 print("    ✅ 다음 버튼 클릭")
                 self.logger.log("[서이추] 다음 버튼 클릭")
-                wait_time = self.random_wait(2, 4)  # 페이지 전환 대기
+                wait_time = self.random_wait(0.5, 1)  # 페이지 전환 대기 0.5-1초로 단축
                 print(f"    ⏰ 페이지 전환 대기: {wait_time:.1f}초")
                 
             except TimeoutException:
@@ -311,8 +340,8 @@ class NeighborAddAutomation:
                 self.logger.log(f"[서이추] 알림: {alert_text}")
                 alert.accept()
                 
-                if '하루' in alert_text or '제한' in alert_text:
-                    print("    🚫 하루 제한 도달")
+                if '더 이상 이웃을 추가할 수 없습니다' in alert_text or '1일동안 추가할 수 있는 이웃수를 제한' in alert_text or ('하루' in alert_text and '제한' in alert_text):
+                    print("    🚫 1일 이웃추가 제한 도달!")
                     result = "limit"
                 elif '완료' in alert_text or '신청' in alert_text:
                     print("    🎉 서로이웃 신청 성공!")
@@ -395,14 +424,22 @@ class NeighborAddAutomation:
             return "fail"
 
     def process_blog(self, blog_url, message):
-        """개별 블로그 처리"""
+        """개별 블로그 처리 (1명당 5-10초 총 시간 제어)"""
+        import time
+        
+        # 전체 과정 타이머 시작
+        start_time = time.time()
+        target_duration = random.uniform(5, 10)  # 5-10초 랜덤 목표 시간
+        print(f"    🎯 목표 처리 시간: {target_duration:.1f}초")
+        
         self.logger.log(f"[서이추] 블로그 처리: {blog_url}")
         
         try:
             # 블로그 방문
             print(f"    🌐 블로그 접속 중...")
             self.driver.get(blog_url)
-            time.sleep(4)  # 페이지 로드 충분히 대기
+            wait_time = self.random_wait(0.5, 1)  # 페이지 로드 대기 0.5-1초로 단축
+            print(f"    ⏰ 페이지 로드 대기: {wait_time:.1f}초")
             
             # 이웃추가 버튼 찾기
             btn, btn_text = self.find_buddy_button()
@@ -410,11 +447,31 @@ class NeighborAddAutomation:
             if not btn:
                 print("    ⏭️  이웃추가 버튼 없음")
                 self.logger.log("[서이추] 이웃추가 버튼 없음 (pass)")
+                
+                # pass인 경우에도 목표 시간 맞추기
+                elapsed_time = time.time() - start_time
+                remaining_time = target_duration - elapsed_time
+                if remaining_time > 0:
+                    print(f"    ⏰ 목표 시간 맞추기 위한 대기: {remaining_time:.1f}초")
+                    time.sleep(remaining_time)
+                
+                total_time = time.time() - start_time
+                print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
                 return "pass"
                 
             if '서로이웃' in btn_text:
                 print("    ⏭️  이미 서로이웃")
                 self.logger.log("[서이추] 이미 서로이웃 (pass)")
+                
+                # pass인 경우에도 목표 시간 맞추기
+                elapsed_time = time.time() - start_time
+                remaining_time = target_duration - elapsed_time
+                if remaining_time > 0:
+                    print(f"    ⏰ 목표 시간 맞추기 위한 대기: {remaining_time:.1f}초")
+                    time.sleep(remaining_time)
+                
+                total_time = time.time() - start_time
+                print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
                 return "pass"
                 
             if '이웃추가' in btn_text:
@@ -433,10 +490,24 @@ class NeighborAddAutomation:
                         print("    ✅ 이웃추가 버튼 클릭 (JS)")
                     
                     self.driver.switch_to.default_content()
-                    time.sleep(3)  # 이웃추가 창 로드 대기
+                    wait_time = self.random_wait(0.5, 1)  # 이웃추가 창 로드 대기 0.5-1초로 단축
+                    print(f"    ⏰ 이웃추가 창 로드 대기: {wait_time:.1f}초")
                     
                     # 이웃추가 프로세스 진행
-                    return self.process_buddy_add(message)
+                    result = self.process_buddy_add(message)
+                    
+                    # 전체 과정 완료 후 남은 시간 계산하여 대기
+                    elapsed_time = time.time() - start_time
+                    remaining_time = target_duration - elapsed_time
+                    
+                    if remaining_time > 0:
+                        print(f"    ⏰ 목표 시간 맞추기 위한 추가 대기: {remaining_time:.1f}초")
+                        time.sleep(remaining_time)
+                    
+                    total_time = time.time() - start_time
+                    print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
+                    
+                    return result
                     
                 except Exception as e:
                     self.logger.log(f"[서이추] 버튼 클릭 실패: {e}")
@@ -448,6 +519,16 @@ class NeighborAddAutomation:
         except Exception as e:
             self.logger.log(f"[서이추] 블로그 처리 실패: {e}")
             print(f"    ❌ 블로그 처리 실패: {e}")
+            
+            # 실패인 경우에도 목표 시간 맞추기
+            elapsed_time = time.time() - start_time
+            remaining_time = target_duration - elapsed_time
+            if remaining_time > 0:
+                print(f"    ⏰ 목표 시간 맞추기 위한 대기: {remaining_time:.1f}초")
+                time.sleep(remaining_time)
+            
+            total_time = time.time() - start_time
+            print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
             return "fail"
 
     def run(self, keyword, count):
@@ -500,34 +581,38 @@ class NeighborAddAutomation:
                 passed += 1
                 print(f"⏭️  패스")
             elif result == "limit":
-                print(f"\n🚫 하루 제한에 도달했습니다!")
-                print(f"네이버 정책상 하루 서이추 제한이 있습니다.")
+                print(f"\n🚫 1일 이웃추가 제한에 도달했습니다!")
+                print(f"📅 네이버 정책상 하루에 추가할 수 있는 이웃수가 제한되어 있습니다.")
+                print(f"⏰ 내일 다시 시도해주세요!")
+                print(f"\n💡 현재까지 결과:")
+                print(f"   ✅ 성공: {success}명")
+                print(f"   ❌ 실패: {fail}명")
+                print(f"   ⏭️  패스: {passed}명")
+                self.logger.log(f"[서이추] 1일 제한 도달로 작업 중단 - 성공: {success}, 실패: {fail}, 패스: {passed}")
                 break
                 
             # 진행상황 표시 (PRD 명세)
             total = success + fail + passed
             print(f"📊 진행상황: {total}/{count} 완료 (성공: {success}, 실패: {fail}, pass: {passed})")
             
-            # 네이버 부하 방지 (랜덤 대기로 자연스럽게)
-            if current < len(self.blog_links):
-                if result == "success":
-                    wait_time = self.random_wait(3, 7)  # 성공 시 3-7초 랜덤 대기
-                    print(f"    ⏰ 네이버 부하 방지: {wait_time:.1f}초 대기")
-                elif result == "fail":
-                    wait_time = self.random_wait(1, 3)  # 실패 시 1-3초 랜덤 대기
-                    print(f"    ⏰ 다음 블로그 대기: {wait_time:.1f}초")
-                else:  # pass
-                    wait_time = self.random_wait(0.5, 2)  # 패스 시 0.5-2초 랜덤 대기
-                    print(f"    ⏰ 다음 블로그 대기: {wait_time:.1f}초")
+            # 각 블로그 처리에서 이미 5-10초 대기가 포함되므로 추가 대기 불필요
+            # 바로 다음 블로그로 진행
         
         # 최종 결과 (PRD 명세)
         print(f"\n{'='*50}")
         print(f"서이추 자동화 완료")
         print(f"{'='*50}")
-        print(f"✅ 성공: {success}")
-        print(f"❌ 실패: {fail}")
-        print(f"⏭️  패스: {passed}")
-        print(f"📊 총계: {success + fail + passed}/{count}")
+        print(f"✅ 성공: {success}명")
+        print(f"❌ 실패: {fail}명")
+        print(f"⏭️  패스: {passed}명")
+        print(f"📊 총계: {success + fail + passed}/{count}명")
+        
+        # 1일 제한 때문에 중단된 경우가 아니라면 정상 완료 메시지
+        if success + fail + passed == len(self.blog_links):
+            print(f"\n🎉 모든 타겟 블로그 처리가 완료되었습니다!")
+        else:
+            print(f"\n⚠️  1일 제한으로 인해 작업이 중단되었습니다.")
+            print(f"📅 내일 다시 시도해주세요!")
         
         self.logger.log(f"[서이추] 최종 결과: 성공 {success}, 실패 {fail}, 패스 {passed}")
 
