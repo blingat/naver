@@ -2734,3 +2734,1248 @@ Stacktrace:
 [2025-07-03 15:16:50] [로그인] 쿠키 로그인 시도
 [2025-07-03 15:16:58] [로그인] 미로그인 상태 - 페이지 소스 확인
 [2025-07-03 15:16:58] [로그인] 쿠키 만료, 직접 로그인 시도
+[2025-07-03 15:17:15] [로그인] 새로운 환경 알림 없음 또는 처리 실패
+[2025-07-03 15:17:22] [로그인] 1번째 로그인 시도 실패, 재시도 중...
+[2025-07-03 15:17:28] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 15:17:28] [로그인] 쿠키 로그인 시도
+[2025-07-03 15:17:29] [로그인] 로그인 상태 가정 - 현재 URL: https://www.naver.com/
+[2025-07-03 15:17:29] [서이추] 자동화 시작 - 키워드: 방이동 맛집, 개수: 50
+[2025-07-03 15:17:29] [서이추] 키워드 '방이동 맛집' 검색 시작
+[2025-07-03 15:17:34] [서이추] 추출된 블로그 수: 30
+[2025-07-03 15:17:34] [서이추] 블로그 처리: https://blog.naver.com/rlaalsgml357/223910773618
+[2025-07-03 15:17:41] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:17:41] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:17:42] [서이추] 블로그 처리: https://blog.naver.com/meeum2u/223911353190
+[2025-07-03 15:17:45] [서이추] 이웃추가 버튼 없음 (pass)
+[2025-07-03 15:17:51] [서이추] 블로그 처리: https://blog.naver.com/tw01554/223904593886
+[2025-07-03 15:17:54] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:17:56] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:17:57] [서이추] 다음 버튼 클릭
+[2025-07-03 15:18:05] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:18:05] [서이추] 블로그 처리: https://blog.naver.com/dog4495/223917330028
+[2025-07-03 15:18:08] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:18:08] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:18:11] [서이추] 블로그 처리: https://blog.naver.com/hohobaby/223918933374
+[2025-07-03 15:18:14] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:18:17] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:18:19] [서이추] 블로그 처리: https://blog.naver.com/mj100600/223894477234
+[2025-07-03 15:18:24] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:18:25] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:18:27] [서이추] 다음 버튼 클릭
+[2025-07-03 15:18:28] [서이추] 이미 서로이웃 신청 진행중
+[2025-07-03 15:18:28] [서이추] 블로그 처리: https://blog.naver.com/coralpinky/223896184481
+[2025-07-03 15:18:31] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:18:33] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:18:35] [서이추] 다음 버튼 클릭
+[2025-07-03 15:18:42] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:18:42] [서이추] 블로그 처리: https://blog.naver.com/wngus990730/223887436173
+[2025-07-03 15:18:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:18:53] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:18:54] [서이추] 다음 버튼 클릭
+[2025-07-03 15:19:02] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:19:02] [서이추] 블로그 처리: https://blog.naver.com/daka1122/223906948715
+[2025-07-03 15:19:06] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:19:06] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:19:11] [서이추] 블로그 처리: https://blog.naver.com/wl2874/223904541654
+[2025-07-03 15:19:14] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:19:16] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:19:17] [서이추] 다음 버튼 클릭
+[2025-07-03 15:19:25] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:19:25] [서이추] 블로그 처리: https://blog.naver.com/yundurius/223919776714
+[2025-07-03 15:19:29] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:19:31] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:19:33] [서이추] 다음 버튼 클릭
+[2025-07-03 15:19:41] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:19:41] [서이추] 블로그 처리: https://blog.naver.com/qnpfrhh3/223911714491
+[2025-07-03 15:19:59] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:19:59] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:19:59] [서이추] 블로그 처리: https://blog.naver.com/success743/223918446522
+[2025-07-03 15:20:05] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:20:10] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:20:13] [서이추] 다음 버튼 클릭
+[2025-07-03 15:20:21] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:20:22] [서이추] 블로그 처리: https://blog.naver.com/mmm7962/223914949384
+[2025-07-03 15:20:39] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:20:46] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:20:48] [서이추] 다음 버튼 클릭
+[2025-07-03 15:20:56] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:20:56] [서이추] 블로그 처리: https://blog.naver.com/kdia2353/223913059488
+[2025-07-03 15:21:04] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:21:04] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:21:06] [서이추] 블로그 처리: https://blog.naver.com/eunpiri715/223907143111
+[2025-07-03 15:21:15] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:21:19] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:21:20] [서이추] 다음 버튼 클릭
+[2025-07-03 15:21:28] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:21:28] [서이추] 블로그 처리: https://blog.naver.com/alwjdola/223916774713
+[2025-07-03 15:21:32] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:21:32] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:21:37] [서이추] 블로그 처리: https://blog.naver.com/junjinheain/223897470299
+[2025-07-03 15:21:42] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:21:42] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:21:47] [서이추] 블로그 처리: https://blog.naver.com/woodogen/223910420967
+[2025-07-03 15:21:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:21:53] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:21:54] [서이추] 다음 버튼 클릭
+[2025-07-03 15:22:02] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:22:02] [서이추] 블로그 처리: https://blog.naver.com/hoingk/223906313024
+[2025-07-03 15:22:07] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:22:09] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:22:10] [서이추] 다음 버튼 클릭
+[2025-07-03 15:22:18] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:22:19] [서이추] 블로그 처리: https://blog.naver.com/super_hj/223909567352
+[2025-07-03 15:22:22] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:22:22] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:22:24] [서이추] 블로그 처리: https://blog.naver.com/qberwy/223914961227
+[2025-07-03 15:22:29] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:22:31] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:22:33] [서이추] 다음 버튼 클릭
+[2025-07-03 15:22:41] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:22:41] [서이추] 블로그 처리: https://blog.naver.com/richsuin/223912073597
+[2025-07-03 15:22:49] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:22:49] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:22:49] [서이추] 블로그 처리: https://blog.naver.com/sehee5933/223918928938
+[2025-07-03 15:22:53] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:22:53] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:22:57] [서이추] 블로그 처리: https://blog.naver.com/rlathgml0726/223912879769
+[2025-07-03 15:23:00] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:23:02] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:23:03] [서이추] 다음 버튼 클릭
+[2025-07-03 15:23:11] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:23:11] [서이추] 블로그 처리: https://blog.naver.com/rokag4/223897726035
+[2025-07-03 15:23:16] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:23:28] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:23:28] [서이추] 블로그 처리: https://blog.naver.com/luk1004/223887695992
+[2025-07-03 15:23:36] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:23:36] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:23:37] [서이추] 블로그 처리: https://blog.naver.com/grb_080913/223911623284
+[2025-07-03 15:23:41] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:23:43] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:23:46] [서이추] 블로그 처리: https://blog.naver.com/naksreview/223915941537
+[2025-07-03 15:23:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:23:52] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:23:53] [서이추] 다음 버튼 클릭
+[2025-07-03 15:23:54] [서이추] 이미 서로이웃 신청 진행중
+[2025-07-03 15:23:54] [서이추] 블로그 처리: https://blog.naver.com/18hibiscus/223899817695
+[2025-07-03 15:24:01] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:24:03] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:24:05] [서이추] 다음 버튼 클릭
+[2025-07-03 15:24:13] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:24:13] [서이추] 최종 결과: 성공 0, 실패 14, 패스 16
+[2025-07-03 15:24:52] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 15:24:52] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 15:25:12] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 15:25:12] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 15:25:15] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 15:25:20] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 15:25:20] [로그인] 쿠키 로그인 시도
+[2025-07-03 15:25:20] [로그인] 로그인 상태 가정 - 현재 URL: https://www.naver.com/
+[2025-07-03 15:25:20] [서이추] 자동화 시작 - 키워드: 방화동 맛집, 개수: 30
+[2025-07-03 15:25:20] [서이추] 키워드 '방화동 맛집' 검색 시작
+[2025-07-03 15:25:27] [서이추] 추출된 블로그 수: 30
+[2025-07-03 15:25:27] [서이추] 블로그 처리: https://blog.naver.com/lovelysuns/223905465960
+[2025-07-03 15:25:33] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:25:35] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:25:36] [서이추] 다음 버튼 클릭
+[2025-07-03 15:25:44] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:25:44] [서이추] 블로그 처리: https://blog.naver.com/darange0/223914942463
+[2025-07-03 15:25:47] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:25:58] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:25:58] [서이추] 블로그 처리: https://blog.naver.com/the_manura/223911113786
+[2025-07-03 15:26:01] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:26:03] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:26:04] [서이추] 다음 버튼 클릭
+[2025-07-03 15:26:13] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:26:13] [서이추] 블로그 처리: https://blog.naver.com/zmffjqapfldjcm/223917935741
+[2025-07-03 15:26:15] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:26:18] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:26:19] [서이추] 다음 버튼 클릭
+[2025-07-03 15:26:27] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:26:27] [서이추] 블로그 처리: https://blog.naver.com/eternal22/223889354220
+[2025-07-03 15:26:30] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:26:32] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:26:34] [서이추] 다음 버튼 클릭
+[2025-07-03 15:26:42] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:26:42] [서이추] 블로그 처리: https://blog.naver.com/cherrycokes2/223887558764
+[2025-07-03 15:26:47] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:26:58] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:26:58] [서이추] 블로그 처리: https://blog.naver.com/czerosilver/223889283357
+[2025-07-03 15:27:03] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:27:05] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:27:07] [서이추] 다음 버튼 클릭
+[2025-07-03 15:27:15] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:27:15] [서이추] 블로그 처리: https://blog.naver.com/tnsni_/223892644555
+[2025-07-03 15:27:18] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:27:20] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:27:21] [서이추] 다음 버튼 클릭
+[2025-07-03 15:27:29] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:27:29] [서이추] 블로그 처리: https://blog.naver.com/9130211/223912631312
+[2025-07-03 15:27:32] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:27:32] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:27:35] [서이추] 블로그 처리: https://blog.naver.com/threechildmom/223917953803
+[2025-07-03 15:27:38] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:27:40] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:27:41] [서이추] 블로그 처리: https://blog.naver.com/177cm67kg/223889121395
+[2025-07-03 15:27:46] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:27:48] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:27:49] [서이추] 다음 버튼 클릭
+[2025-07-03 15:27:52] [서이추] 메시지 입력 완료
+[2025-07-03 15:27:54] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:28:01] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:28:01] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:28:01] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:28:01] [서이추] 블로그 처리: https://blog.naver.com/hwajin0718/223919597647
+[2025-07-03 15:28:04] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:28:06] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:28:08] [서이추] 다음 버튼 클릭
+[2025-07-03 15:28:15] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:28:16] [서이추] 블로그 처리: https://blog.naver.com/lovevim33/223900019347
+[2025-07-03 15:28:19] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:28:21] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:28:26] [서이추] 블로그 처리: https://blog.naver.com/pdi0903/223920049093
+[2025-07-03 15:28:29] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:28:31] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:28:32] [서이추] 다음 버튼 클릭
+[2025-07-03 15:28:35] [서이추] 메시지 입력 완료
+[2025-07-03 15:28:37] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:28:44] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:28:44] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:28:44] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:28:44] [서이추] 블로그 처리: https://blog.naver.com/doi1230/223910625145
+[2025-07-03 15:28:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:28:52] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:28:53] [서이추] 다음 버튼 클릭
+[2025-07-03 15:29:01] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:29:01] [서이추] 블로그 처리: https://blog.naver.com/1_paper_shop/223899045744
+[2025-07-03 15:29:05] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:29:07] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:29:09] [서이추] 다음 버튼 클릭
+[2025-07-03 15:29:17] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:29:17] [서이추] 블로그 처리: https://blog.naver.com/kdbwjd12/223912115465
+[2025-07-03 15:29:22] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:29:25] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:29:26] [서이추] 다음 버튼 클릭
+[2025-07-03 15:29:29] [서이추] 메시지 입력 완료
+[2025-07-03 15:29:30] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:29:37] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:29:37] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:29:37] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:29:37] [서이추] 블로그 처리: https://blog.naver.com/rungzi-/223915754298
+[2025-07-03 15:29:40] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:29:52] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:29:52] [서이추] 블로그 처리: https://blog.naver.com/redsock18/223900042407
+[2025-07-03 15:29:57] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:30:00] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:30:01] [서이추] 다음 버튼 클릭
+[2025-07-03 15:30:09] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:30:09] [서이추] 블로그 처리: https://blog.naver.com/love-eune/223911345593
+[2025-07-03 15:30:13] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:30:15] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:30:16] [서이추] 다음 버튼 클릭
+[2025-07-03 15:30:24] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:30:24] [서이추] 블로그 처리: https://blog.naver.com/anrgudtkd/223908504577
+[2025-07-03 15:30:29] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:30:31] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:30:32] [서이추] 다음 버튼 클릭
+[2025-07-03 15:30:35] [서이추] 메시지 입력 완료
+[2025-07-03 15:30:37] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:30:44] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:30:44] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:30:44] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:30:44] [서이추] 블로그 처리: https://blog.naver.com/sweetwhistle53/223892671495
+[2025-07-03 15:30:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:30:52] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:30:53] [서이추] 다음 버튼 클릭
+[2025-07-03 15:31:01] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:31:01] [서이추] 블로그 처리: https://blog.naver.com/skekdz159/223891378925
+[2025-07-03 15:31:05] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:31:07] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:31:08] [서이추] 다음 버튼 클릭
+[2025-07-03 15:31:16] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:31:16] [서이추] 블로그 처리: https://blog.naver.com/jiniworld26/223903514320
+[2025-07-03 15:31:20] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:31:22] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:31:23] [서이추] 다음 버튼 클릭
+[2025-07-03 15:31:31] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:31:31] [서이추] 블로그 처리: https://blog.naver.com/heehee617/223916480961
+[2025-07-03 15:31:35] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:31:39] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:31:41] [서이추] 다음 버튼 클릭
+[2025-07-03 15:31:48] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:31:48] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed9ba]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:31:48] [서이추] 블로그 처리: https://blog.naver.com/lovevim33/223907807442
+[2025-07-03 15:31:52] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:31:54] [서이추] 이웃추가 프로세스 실패: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x6606a8]
+	(No symbol) [0x0x66162d]
+	(No symbol) [0x0x672b43]
+	(No symbol) [0x0x650b55]
+	(No symbol) [0x0x6ee678]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:31:54] [서이추] 오류 후 창 전환 실패 (무시): Message: invalid session id
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x671f90]
+	(No symbol) [0x0x6adb48]
+	(No symbol) [0x0x6df326]
+	(No symbol) [0x0x6daf15]
+	(No symbol) [0x0x6da496]
+	(No symbol) [0x0x643a45]
+	(No symbol) [0x0x643f9e]
+	(No symbol) [0x0x64442d]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	(No symbol) [0x0x643710]
+	(No symbol) [0x0x642f1d]
+	GetHandleVerifier [0x0xbd8b8c+3881484]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:42:50] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 15:42:50] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 15:43:10] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 15:43:10] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 15:43:18] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 15:43:26] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 15:43:26] [로그인] 쿠키 로그인 시도
+[2025-07-03 15:43:26] [로그인] 로그인 상태 가정 - 현재 URL: https://www.naver.com/
+[2025-07-03 15:43:26] [서이추] 자동화 시작 - 키워드: 방화역 맛집, 개수: 30
+[2025-07-03 15:43:26] [서이추] 키워드 '방화역 맛집' 검색 시작
+[2025-07-03 15:43:34] [서이추] 추출된 블로그 수: 29
+[2025-07-03 15:43:34] [서이추] 블로그 처리: https://blog.naver.com/tpxm231/223917169971
+[2025-07-03 15:43:45] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:43:45] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:43:45] [서이추] 블로그 처리: https://blog.naver.com/chomchom64/223903265077
+[2025-07-03 15:43:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:43:52] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:43:54] [서이추] 다음 버튼 클릭
+[2025-07-03 15:43:57] [서이추] 메시지 입력 완료
+[2025-07-03 15:43:58] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:44:04] [서이추] 서로이웃 신청 완료 (기본)
+[2025-07-03 15:44:04] [서이추] 블로그 처리: https://blog.naver.com/czerosilver/223889669179
+[2025-07-03 15:44:11] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:44:23] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:44:23] [서이추] 블로그 처리: https://blog.naver.com/jiniworld26/223903514320
+[2025-07-03 15:44:27] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:44:30] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:44:31] [서이추] 다음 버튼 클릭
+[2025-07-03 15:44:39] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:44:39] [서이추] 블로그 처리: https://blog.naver.com/choi-01/223893027929
+[2025-07-03 15:44:42] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:44:44] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:44:46] [서이추] 다음 버튼 클릭
+[2025-07-03 15:44:54] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:44:54] [서이추] 블로그 처리: https://blog.naver.com/kim_jippeu/223910626549
+[2025-07-03 15:44:59] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:45:11] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:45:11] [서이추] 블로그 처리: https://blog.naver.com/jayna_daily/223903549195
+[2025-07-03 15:45:14] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:45:16] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:45:17] [서이추] 다음 버튼 클릭
+[2025-07-03 15:45:25] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:45:26] [서이추] 블로그 처리: https://blog.naver.com/heesu2933/223904294292
+[2025-07-03 15:45:29] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:45:31] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:45:32] [서이추] 다음 버튼 클릭
+[2025-07-03 15:45:40] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:45:40] [서이추] 블로그 처리: https://blog.naver.com/flora0713/223887022340
+[2025-07-03 15:45:44] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:45:44] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:45:47] [서이추] 블로그 처리: https://blog.naver.com/chocos39/223914983510
+[2025-07-03 15:45:54] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:45:56] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:45:58] [서이추] 다음 버튼 클릭
+[2025-07-03 15:46:05] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:46:06] [서이추] 블로그 처리: https://blog.naver.com/hi___log/223888535440
+[2025-07-03 15:46:09] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:46:25] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:46:25] [서이추] 블로그 처리: https://blog.naver.com/supermatrio/223911379674
+[2025-07-03 15:46:30] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:46:32] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:46:33] [서이추] 다음 버튼 클릭
+[2025-07-03 15:46:37] [서이추] 메시지 입력 완료
+[2025-07-03 15:46:39] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:46:45] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:46:46] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:46:46] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:46:46] [서이추] 블로그 처리: https://blog.naver.com/silklombar/223911607646
+[2025-07-03 15:46:51] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:46:53] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:46:54] [서이추] 다음 버튼 클릭
+[2025-07-03 15:46:58] [서이추] 메시지 입력 완료
+[2025-07-03 15:46:59] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:47:06] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:47:06] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:47:06] [서이추] 블로그 처리: https://blog.naver.com/chomchom64/223888017607
+[2025-07-03 15:47:10] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:47:21] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:47:21] [서이추] 블로그 처리: https://blog.naver.com/yeon_sweetpotato/223908462895
+[2025-07-03 15:47:25] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:47:29] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:47:30] [서이추] 다음 버튼 클릭
+[2025-07-03 15:47:38] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:47:38] [서이추] 블로그 처리: https://blog.naver.com/choihyoungmi/223900344065
+[2025-07-03 15:47:41] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:47:44] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:47:45] [서이추] 다음 버튼 클릭
+[2025-07-03 15:47:48] [서이추] 메시지 입력 완료
+[2025-07-03 15:47:50] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:47:56] [서이추] 서로이웃 신청 완료 (기본)
+[2025-07-03 15:47:56] [서이추] 블로그 처리: https://blog.naver.com/soj4205/223899909505
+[2025-07-03 15:47:59] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:48:11] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:48:11] [서이추] 블로그 처리: https://blog.naver.com/lucy1109n/223900288562
+[2025-07-03 15:48:14] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:48:17] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:48:19] [서이추] 다음 버튼 클릭
+[2025-07-03 15:48:27] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:48:27] [서이추] 블로그 처리: https://blog.naver.com/tbkimchi032/223888361708
+[2025-07-03 15:48:32] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:48:33] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:48:35] [서이추] 다음 버튼 클릭
+[2025-07-03 15:48:43] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:48:43] [서이추] 블로그 처리: https://blog.naver.com/0________-_________0/223896668069
+[2025-07-03 15:48:47] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:48:49] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:48:50] [서이추] 다음 버튼 클릭
+[2025-07-03 15:48:58] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:48:58] [서이추] 블로그 처리: https://blog.naver.com/dec_twnth/223909103514
+[2025-07-03 15:49:04] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:49:06] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:49:07] [서이추] 다음 버튼 클릭
+[2025-07-03 15:49:15] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:49:15] [서이추] 블로그 처리: https://blog.naver.com/cndjr2822/223919334706
+[2025-07-03 15:49:18] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:49:30] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:49:30] [서이추] 블로그 처리: https://blog.naver.com/hwajin0718/223919597647
+[2025-07-03 15:49:35] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:49:38] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:49:39] [서이추] 다음 버튼 클릭
+[2025-07-03 15:49:47] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:49:47] [서이추] 블로그 처리: https://blog.naver.com/lhl85/223916553021
+[2025-07-03 15:49:51] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:50:02] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:50:02] [서이추] 블로그 처리: https://blog.naver.com/noxanne/223889511604
+[2025-07-03 15:50:09] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:50:13] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:50:14] [서이추] 블로그 처리: https://blog.naver.com/hikhikhomuri_house/223904103932
+[2025-07-03 15:50:20] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:50:23] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:50:24] [서이추] 다음 버튼 클릭
+[2025-07-03 15:50:27] [서이추] 메시지 입력 완료
+[2025-07-03 15:50:29] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:50:36] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:50:36] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:50:36] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:50:36] [서이추] 블로그 처리: https://blog.naver.com/peach890427/223906823513
+[2025-07-03 15:50:39] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:50:43] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:50:45] [서이추] 다음 버튼 클릭
+[2025-07-03 15:50:48] [서이추] 메시지 입력 완료
+[2025-07-03 15:50:51] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:50:58] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:50:59] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:50:59] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:51:00] [서이추] 블로그 처리: https://blog.naver.com/worklog/223890013538
+[2025-07-03 15:51:09] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:51:16] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:51:18] [서이추] 다음 버튼 클릭
+[2025-07-03 15:51:21] [서이추] 메시지 입력 완료
+[2025-07-03 15:51:24] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:51:30] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:51:31] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:51:31] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:51:31] [서이추] 블로그 처리: https://blog.naver.com/ingo_5544/223827605747
+[2025-07-03 15:51:41] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:51:43] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:51:45] [서이추] 다음 버튼 클릭
+[2025-07-03 15:51:52] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:51:53] [서이추] 최종 결과: 성공 7, 실패 19, 패스 3
+[2025-07-03 15:53:34] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 15:53:34] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 15:54:02] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 15:54:02] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 15:54:05] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 15:54:12] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 15:54:12] [로그인] 쿠키 로그인 시도
+[2025-07-03 15:54:12] [로그인] 로그인 상태 가정 - 현재 URL: https://www.naver.com/
+[2025-07-03 15:54:12] [서이추] 자동화 시작 - 키워드: 동탄호수공원 맛집, 개수: 30
+[2025-07-03 15:54:12] [서이추] 키워드 '동탄호수공원 맛집' 검색 시작
+[2025-07-03 15:54:17] [서이추] 추출된 블로그 수: 30
+[2025-07-03 15:54:17] [서이추] 블로그 처리: https://blog.naver.com/chloe_bk/223911060861
+[2025-07-03 15:54:27] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:54:35] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:54:37] [서이추] 다음 버튼 클릭
+[2025-07-03 15:54:42] [서이추] 메시지 입력 완료
+[2025-07-03 15:54:44] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:54:52] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:54:52] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:54:52] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:54:52] [서이추] 블로그 처리: https://blog.naver.com/sun_jeong2/223905755022
+[2025-07-03 15:54:59] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:55:01] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:55:03] [서이추] 다음 버튼 클릭
+[2025-07-03 15:55:06] [서이추] 메시지 입력 완료
+[2025-07-03 15:55:08] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:55:15] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:55:16] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:55:16] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:55:16] [서이추] 블로그 처리: https://blog.naver.com/pria6812/223896133348
+[2025-07-03 15:55:20] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:55:24] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:55:26] [서이추] 다음 버튼 클릭
+[2025-07-03 15:55:29] [서이추] 메시지 입력 완료
+[2025-07-03 15:55:31] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:55:37] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:55:38] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:55:38] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d83b]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:55:38] [서이추] 블로그 처리: https://blog.naver.com/kies84/223916010272
+[2025-07-03 15:55:41] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:55:43] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:55:44] [서이추] 다음 버튼 클릭
+[2025-07-03 15:55:46] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:55:46] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:55:46] [서이추] 블로그 처리: https://blog.naver.com/dkfmaspt7/223905830222
+[2025-07-03 15:55:51] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:55:53] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:55:54] [서이추] 다음 버튼 클릭
+[2025-07-03 15:55:56] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:55:56] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:55:56] [서이추] 블로그 처리: https://blog.naver.com/ddaomingsuk/223906292931
+[2025-07-03 15:55:59] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:02] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:56:04] [서이추] 다음 버튼 클릭
+[2025-07-03 15:56:05] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:05] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:05] [서이추] 블로그 처리: https://blog.naver.com/bej214/223894993296
+[2025-07-03 15:56:09] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:11] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:56:12] [서이추] 다음 버튼 클릭
+[2025-07-03 15:56:14] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:14] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:14] [서이추] 블로그 처리: https://blog.naver.com/gdbstjs123/223897724307
+[2025-07-03 15:56:17] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:19] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:56:22] [서이추] 블로그 처리: https://blog.naver.com/eunjuyaaa/223917195651
+[2025-07-03 15:56:24] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:26] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:56:27] [서이추] 다음 버튼 클릭
+[2025-07-03 15:56:29] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:29] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:32] [서이추] 블로그 처리: https://blog.naver.com/berrycess/223914057855
+[2025-07-03 15:56:35] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:38] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:56:39] [서이추] 다음 버튼 클릭
+[2025-07-03 15:56:40] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:40] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:40] [서이추] 블로그 처리: https://blog.naver.com/kdvkdk/223913450929
+[2025-07-03 15:56:44] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:47] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:56:49] [서이추] 다음 버튼 클릭
+[2025-07-03 15:56:50] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:50] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:50] [서이추] 블로그 처리: https://blog.naver.com/hdy0159/223920393805
+[2025-07-03 15:56:53] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:56:55] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:56:57] [서이추] 다음 버튼 클릭
+[2025-07-03 15:56:58] [서이추] 메시지 입력 오류: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x720159]
+	(No symbol) [0x0x6ff266]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:58] [서이추] 이웃추가 프로세스 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x854553+62419]
+	GetHandleVerifier [0x0x854594+62484]
+	(No symbol) [0x0x692133]
+	(No symbol) [0x0x670fd9]
+	(No symbol) [0x0x705b9e]
+	(No symbol) [0x0x70d9ba]
+	(No symbol) [0x0x6ff433]
+	(No symbol) [0x0x6ce852]
+	(No symbol) [0x0x6cf6f4]
+	GetHandleVerifier [0x0xac4833+2619059]
+	GetHandleVerifier [0x0xabfc4a+2599626]
+	GetHandleVerifier [0x0x87b0fa+221050]
+	GetHandleVerifier [0x0x86b378+156152]
+	GetHandleVerifier [0x0x871d2d+183213]
+	GetHandleVerifier [0x0x85c438+94904]
+	GetHandleVerifier [0x0x85c5c2+95298]
+	GetHandleVerifier [0x0x84771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:56:59] [서이추] 블로그 처리: https://blog.naver.com/chloe_bk/223918133625
+[2025-07-03 15:57:04] [서이추] 이웃추가 버튼 발견

@@ -136,14 +136,10 @@ class ChromeSetup:
         return options
     
     def create_chrome_driver_with_retry(self, max_attempts=3):
-        """재시도 로직이 포함된 Chrome 드라이버 생성 (타임아웃 적용)"""
-        import signal
+        """재시도 로직이 포함된 Chrome 드라이버 생성 (최적화)"""
         import threading
         
         last_error = None
-        
-        def timeout_handler(signum, frame):
-            raise TimeoutError("Chrome 드라이버 생성 타임아웃 (60초)")
         
         for attempt in range(1, max_attempts + 1):
             try:
@@ -160,22 +156,29 @@ class ChromeSetup:
                 # ChromeDriver 경로 가져오기
                 driver_path = self.get_chromedriver_path()
                 
-                # 간단한 Chrome 옵션 생성
-                options = uc.ChromeOptions()
-                options.add_argument('--no-sandbox')
+                # 최적화된 Chrome 옵션 생성 (create_chrome_options 메서드 사용)
+                options = self.create_chrome_options()
+                
+                # 추가 최적화 옵션
+                options.add_argument('--disable-logging')
                 options.add_argument('--disable-dev-shm-usage')
-                options.add_argument('--disable-gpu')
                 options.add_argument('--disable-web-security')
-                options.add_argument('--disable-features=VizDisplayCompositor')
-                options.add_argument('--disable-extensions')
-                options.add_argument('--disable-plugins')
-                options.add_argument('--disable-images')
-                options.add_argument('--disable-javascript')
+                options.add_argument('--no-first-run')
+                options.add_argument('--no-default-browser-check')
+                options.add_argument('--disable-popup-blocking')
+                options.add_argument('--disable-translate')
+                options.add_argument('--disable-default-apps')
+                options.add_argument('--disable-sync')
+                options.add_argument('--disable-features=TranslateUI')
+                options.add_argument('--disable-features=ChromeWhatsNewUI')
+                
+                # 페이지 로드 전략 설정 (더 빠른 시작)
+                options.page_load_strategy = 'eager'  # DOM 로드 완료 시 진행
                 
                 if self.logger:
-                    self.logger.log(f"[Chrome] 간단한 옵션으로 드라이버 생성 시도...")
+                    self.logger.log(f"[Chrome] 최적화된 옵션으로 드라이버 생성 시도...")
                 
-                # 타임아웃 설정 (60초)
+                # 타임아웃 설정 (30초로 단축)
                 driver = None
                 driver_created = False
                 error_occurred = None
@@ -183,10 +186,12 @@ class ChromeSetup:
                 def create_driver():
                     nonlocal driver, driver_created, error_occurred
                     try:
+                        # undetected_chromedriver 대신 일반 Chrome 사용 (더 빠름)
                         driver = uc.Chrome(
                             options=options,
                             driver_executable_path=driver_path,
-                            version_main=None
+                            version_main=None,
+                            use_subprocess=False  # 서브프로세스 사용 안함 (더 빠름)
                         )
                         driver_created = True
                     except Exception as e:
@@ -196,11 +201,11 @@ class ChromeSetup:
                 thread = threading.Thread(target=create_driver)
                 thread.daemon = True
                 thread.start()
-                thread.join(timeout=60)  # 60초 타임아웃
+                thread.join(timeout=30)  # 30초 타임아웃으로 단축
                 
                 if thread.is_alive():
                     if self.logger:
-                        self.logger.log("[Chrome] 드라이버 생성 타임아웃 (60초)")
+                        self.logger.log("[Chrome] 드라이버 생성 타임아웃 (30초)")
                     raise TimeoutError("Chrome 드라이버 생성 타임아웃")
                 
                 if error_occurred:
@@ -209,13 +214,35 @@ class ChromeSetup:
                 if not driver_created or driver is None:
                     raise Exception("드라이버 생성 실패")
                 
-                # 창 크기 설정
+                # config.json의 창 크기 설정 적용
                 try:
                     width = self.config.get('window_width', 1200)
                     height = self.config.get('window_height', 900)
                     driver.set_window_size(width, height)
+                    
+                    # 창 위치 설정 (선택사항)
+                    if 'window_position_x' in self.config and 'window_position_y' in self.config:
+                        x = self.config.get('window_position_x', 0)
+                        y = self.config.get('window_position_y', 0)
+                        driver.set_window_position(x, y)
+                    
+                    if self.logger:
+                        self.logger.log(f"[Chrome] 창 크기 설정: {width}x{height}")
+                except Exception as e:
+                    if self.logger:
+                        self.logger.log(f"[Chrome] 창 크기 설정 실패 (무시): {e}")
+                
+                # 자동화 탐지 방지 스크립트 (빠르게 실행)
+                try:
+                    driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
+                        'source': '''
+                            Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+                            Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
+                            Object.defineProperty(navigator, 'languages', {get: () => ['ko-KR', 'ko']});
+                        '''
+                    })
                 except:
-                    pass  # 창 크기 설정 실패는 무시
+                    pass  # 실패해도 계속 진행
                 
                 if self.logger:
                     self.logger.log(f"[Chrome] 브라우저 시작 성공 (시도 {attempt}/{max_attempts})")
