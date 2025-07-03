@@ -64,7 +64,7 @@ class GeminiAPI:
                 self.logger.log(f"[Gemini] API 요청 시작 - 프롬프트 길이: {len(prompt)}")
             
             print(f"     * API 요청 전송 중... (프롬프트 길이: {len(prompt)}자)")
-            response = requests.post(url, headers=headers, json=data, timeout=3)  # 5초 → 3초로 단축
+            response = requests.post(url, headers=headers, json=data, timeout=5)
             print(f"     * API 응답 수신 완료 (상태코드: {response.status_code})")
             
             if response.status_code == 200:
@@ -96,7 +96,7 @@ class GeminiAPI:
                 return None, error_msg
                 
         except requests.exceptions.Timeout:
-            error_msg = "API 요청 시간 초과 (3초)"
+            error_msg = "API 요청 시간 초과 (5초)"
             print(f"     * {error_msg}")
             if self.logger:
                 self.logger.log(f"[Gemini] {error_msg}")
@@ -191,7 +191,11 @@ class GeminiAPI:
 
 위 스타일 가이드를 참고하여 다음 조건에 맞는 댓글을 작성해주세요:
 1. 20-50자 정도의 짧은 댓글
-2. 댓글 작성 스타일 가이드 최대한 반영해줘
+2. 자연스럽고 친근한 톤
+3. 블로그 내용과 관련된 댓글
+4. 과도한 칭찬보다는 공감이나 질문 형태
+5. 이모지 1-2개 정도 포함
+6. 스타일 가이드의 예시와 비슷한 느낌으로
 
 댓글만 작성해주세요:
 """
@@ -206,7 +210,11 @@ class GeminiAPI:
 
 위 스타일 가이드를 참고하여 다음 조건에 맞는 댓글을 작성해주세요:
 1. 20-50자 정도의 짧은 댓글
-2. 댓글 작성 스타일 가이드 최대한 반영해줘
+2. 자연스럽고 친근한 톤
+3. 제목과 관련된 댓글
+4. 과도한 칭찬보다는 공감이나 질문 형태
+5. 이모지 1-2개 정도 포함
+6. 스타일 가이드의 예시와 비슷한 느낌으로
 
 댓글만 작성해주세요:
 """

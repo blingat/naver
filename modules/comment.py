@@ -193,7 +193,7 @@ class CommentAutomation:
                             continue
                             
                         # 제목 추출 (간단한 방법)
-                        title = element.text.strip()
+                            title = element.text.strip()
                         
                         # 제목이 없으면 기본값 사용
                         if not title or len(title) < 3:
@@ -493,12 +493,10 @@ class CommentAutomation:
                 pass
     
     def process_single_post(self, post_info):
-        """단일 게시글 처리 (최적화된 버전)"""
+        """단일 게시글 처리"""
         import time
-        import random
         
-        # 목표 시간 설정 (5-10초 랜덤)
-        target_duration = random.uniform(5, 10)
+        # 개별 게시글 처리 시작 시간
         post_start_time = time.time()
         
         try:
@@ -509,200 +507,46 @@ class CommentAutomation:
             
             # 이미 댓글 작성한 글인지 확인
             if self.is_already_commented(url):
-                elapsed = time.time() - post_start_time
-                print(f"     ⏭️  이미 댓글을 작성한 글입니다 (PASS) - {elapsed:.1f}초")
+                post_end_time = time.time()
+                post_duration = post_end_time - post_start_time
+                print(f"     ⏭️  이미 댓글을 작성한 글입니다 (PASS) - {post_duration:.1f}초")
                 return "pass", "이미 댓글 작성"
             
-            # 게시글 열기 (대기시간 단축)
+            # 게시글 열기
             self.driver.get(url)
-            time.sleep(1)  # 3초 → 1초로 단축
+            time.sleep(3)
             
-            # iframe으로 한 번만 전환하여 모든 작업 수행
-            try:
-                WebDriverWait(self.driver, 5).until(  # 10초 → 5초로 단축
-                    EC.presence_of_element_located((By.NAME, 'mainFrame'))
-                )
-                self.driver.switch_to.frame('mainFrame')
-                time.sleep(1)  # 2초 → 1초로 단축
-                print("     🖼️  iframe으로 전환 완료")
-            except Exception as e:
-                elapsed = time.time() - post_start_time
-                print(f"     ❌ iframe 전환 실패: {e} - {elapsed:.1f}초")
-                return "fail", f"iframe 전환 실패: {e}"
+            # 블로그 내용 미리보기 추출
+            content_preview = self.extract_blog_content_preview()
             
-            # 1. 블로그 내용 미리보기 추출 (iframe 내에서)
-            content_preview = self.extract_blog_content_fast()
+            # 공감 버튼 클릭
+            self.click_like_button()
             
-            # 2. 공감 버튼 클릭 (iframe 내에서)
-            self.click_like_button_fast()
-            
-            # 3. AI 댓글 생성 (iframe 내에서 동시에)
-            if not self.gemini:
-                self.driver.switch_to.default_content()
-                elapsed = time.time() - post_start_time
-                print(f"     ❌ Gemini API가 설정되지 않았습니다 - {elapsed:.1f}초")
-                return "fail", "API 미설정"
-            
-            print("     🤖 AI 댓글 생성 중...")
-            comment_text, error = self.gemini.generate_comment(title, content_preview)
-            
-            if error:
-                self.driver.switch_to.default_content()
-                elapsed = time.time() - post_start_time
-                print(f"     ❌ 댓글 생성 실패: {error} - {elapsed:.1f}초")
-                return "fail", f"댓글 생성 실패: {error}"
-            
-            print(f"     💬 생성된 댓글: {comment_text}")
-            
-            # 4. 댓글 작성 (이미 iframe 내에 있음)
-            success, write_error = self.write_comment_fast(comment_text)
-            
-            # iframe에서 나오기
-            self.driver.switch_to.default_content()
+            # 댓글 작성 (제목과 내용 미리보기 모두 전달)
+            success, error = self.write_comment(title, content_preview)
             
             if success:
                 # 댓글 작성 기록 저장
                 self.save_comment_record(url)
-                
-                # 목표 시간까지 대기
-                elapsed = time.time() - post_start_time
-                remaining_time = target_duration - elapsed
-                if remaining_time > 0:
-                    time.sleep(remaining_time)
-                    elapsed = time.time() - post_start_time
-                
-                print(f"     ✅ 댓글 작성 완료! - {elapsed:.1f}초")
-                self.logger.log(f"[댓글자동화] 댓글 작성 성공: {title} | {url} | {elapsed:.1f}초")
+                post_end_time = time.time()
+                post_duration = post_end_time - post_start_time
+                print(f"     ✅ 댓글 작성 완료! - {post_duration:.1f}초")
+                self.logger.log(f"[댓글자동화] 댓글 작성 성공: {title} | {url} | {post_duration:.1f}초")
                 return "success", None
             else:
-                elapsed = time.time() - post_start_time
-                print(f"     ❌ 댓글 작성 실패! - {elapsed:.1f}초")
-                self.logger.log(f"[댓글자동화] 댓글 작성 실패: {title} | {write_error} | {elapsed:.1f}초")
-                return "fail", write_error
+                post_end_time = time.time()
+                post_duration = post_end_time - post_start_time
+                print(f"     ❌ 댓글 작성 실패! - {post_duration:.1f}초")
+                self.logger.log(f"[댓글자동화] 댓글 작성 실패: {title} | {error} | {post_duration:.1f}초")
+                return "fail", error
                 
         except Exception as e:
-            # iframe에서 나오기
-            try:
-                self.driver.switch_to.default_content()
-            except:
-                pass
-                
-            elapsed = time.time() - post_start_time
+            post_end_time = time.time()
+            post_duration = post_end_time - post_start_time
             error_msg = f"게시글 처리 오류: {e}"
-            print(f"     ❌ {error_msg} - {elapsed:.1f}초")
-            self.logger.log(f"[댓글자동화] {error_msg} | {elapsed:.1f}초")
+            print(f"     ❌ {error_msg} - {post_duration:.1f}초")
+            self.logger.log(f"[댓글자동화] {error_msg} | {post_duration:.1f}초")
             return "fail", error_msg
-
-    def extract_blog_content_fast(self):
-        """블로그 내용 미리보기 추출 (최적화된 버전, 이미 iframe 내에서 실행)"""
-        try:
-            # 빠른 내용 추출을 위한 간단한 셀렉터들
-            content_selectors = [
-                ".se-main-container",  # 스마트에디터 3.0
-                "#postViewArea",  # 기본 포스트 영역
-                ".post_ct",  # 포스트 내용
-            ]
-            
-            content_text = ""
-            for selector in content_selectors:
-                try:
-                    element = self.driver.find_element(By.CSS_SELECTOR, selector)
-                    if element:
-                        text = element.text.strip()
-                        if text and len(text) > 20:
-                            content_text = text[:200] + "..."  # 200자로 제한
-                            break
-                except:
-                    continue
-            
-            if content_text:
-                print(f"     📖 내용 미리보기 추출: {content_text[:50]}...")
-            
-            return content_text.strip()
-            
-        except Exception as e:
-            print(f"     ⚠️  내용 추출 오류: {e}")
-            return ""
-
-    def click_like_button_fast(self):
-        """공감 버튼 클릭 (최적화된 버전, 이미 iframe 내에서 실행)"""
-        try:
-            # 공감 버튼 빠르게 찾기
-            try:
-                like_btn = self.driver.find_element(By.CSS_SELECTOR, ".u_likeit_list_btn._button[data-type='like']")
-                
-                # 공감 상태 확인
-                class_attr = like_btn.get_attribute("class") or ""
-                
-                # off 상태면 클릭
-                if " off " in f" {class_attr} " or class_attr.endswith(" off"):
-                    print("     🤍 공감하지 않은 상태 - 공감 버튼 클릭")
-                    self.driver.execute_script("arguments[0].click();", like_btn)
-                    time.sleep(0.5)  # 2초 → 0.5초로 단축
-                    print("     💖 공감 완료!")
-                else:
-                    print("     💖 이미 공감한 글입니다")
-                    
-            except:
-                print("     ⏭️  공감 버튼이 없는 글입니다")
-                
-        except Exception as e:
-            print(f"     ⚠️  공감 버튼 처리 오류: {e}")
-
-    def write_comment_fast(self, comment_text):
-        """댓글 작성 (최적화된 버전, 이미 iframe 내에서 실행)"""
-        try:
-            # 댓글 쓰기 버튼 빠르게 클릭
-            try:
-                comment_btn = WebDriverWait(self.driver, 3).until(  # 5초 → 3초로 단축
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn_comment.pcol2._cmtList"))
-                )
-                comment_btn.click()
-                time.sleep(0.5)  # 2초 → 0.5초로 단축
-                print("     ✅ 댓글 쓰기 버튼 클릭")
-            except:
-                print("     ❌ 댓글 쓰기 버튼을 찾을 수 없습니다")
-                return False, "댓글 쓰기 버튼 없음"
-            
-            # 댓글 입력창 빠르게 찾기
-            try:
-                comment_input = WebDriverWait(self.driver, 3).until(  # 5초 → 3초로 단축
-                    EC.presence_of_element_located((By.CSS_SELECTOR, "div[contenteditable='true'][data-log='RPC.input']"))
-                )
-                print("     ✅ 댓글 입력창 발견")
-            except:
-                print("     ❌ 댓글 입력창을 찾을 수 없습니다")
-                return False, "댓글 입력창 없음"
-            
-            # 댓글 입력
-            try:
-                self.driver.execute_script("""
-                    arguments[0].focus();
-                    arguments[0].innerHTML = arguments[1];
-                    arguments[0].dispatchEvent(new Event('input', { bubbles: true }));
-                """, comment_input, comment_text)
-                time.sleep(0.5)  # 1초 → 0.5초로 단축
-                print("     ✅ 댓글 입력 완료")
-            except Exception as e:
-                print(f"     ❌ 댓글 입력 실패: {e}")
-                return False, f"댓글 입력 실패: {e}"
-            
-            # 등록 버튼 클릭
-            try:
-                submit_btn = WebDriverWait(self.driver, 3).until(  # 5초 → 3초로 단축
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-log='RPC.write']"))
-                )
-                submit_btn.click()
-                time.sleep(1)  # 2초 → 1초로 단축
-                print("     ✅ 댓글 등록 완료!")
-                return True, None
-            except:
-                print("     ❌ 댓글 등록 버튼을 찾을 수 없습니다")
-                return False, "등록 버튼 없음"
-            
-        except Exception as e:
-            print(f"     ❌ 댓글 작성 오류: {e}")
-            return False, f"댓글 작성 오류: {e}"
     
     def run_comment_automation(self, target_count, start_page):
         """댓글 자동화 실행"""
@@ -754,8 +598,8 @@ class CommentAutomation:
                     # 진행상황 출력
                     print(f"   📊 현재 상황: 성공 {success_count}, 실패 {fail_count}, 패스 {pass_count}")
                     
-                    # 잠시 대기 (너무 빠른 요청 방지) - 시간 단축
-                    time.sleep(0.5)  # 2초 → 0.5초로 단축
+                    # 잠시 대기 (너무 빠른 요청 방지)
+                    time.sleep(2)
                 
                 current_page += 1
             

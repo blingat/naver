@@ -1752,3 +1752,985 @@ Stacktrace:
 [2025-07-02 17:12:10] [Chrome] PATH 환경변수 길이: 1239
 [2025-07-02 17:12:10] [Chrome] TEMP 디렉토리: C:\Users\GWANGG~1\AppData\Local\Temp
 [2025-07-02 17:12:10] [Chrome] undetected_chromedriver 호출 시작
+[2025-07-03 08:52:01] [Chrome] 드라이버 생성 시작
+[2025-07-03 08:52:01] [Chrome] Chrome 파일 확인: C:\Program Files\Google\Chrome\Application\chrome.exe
+[2025-07-03 08:52:03] [Chrome] Chrome 설치 확인: 기존 브라우저 세션에서 여는 중입니다. (경로: C:\Program Files\Google\Chrome\Application\chrome.exe)
+[2025-07-03 08:52:03] [Chrome] 사용자 지정 ChromeDriver 사용: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 08:52:03] [Chrome] 사용할 ChromeDriver: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 08:52:05] [Chrome] 현재 실행 중인 Chrome 프로세스: 25개
+[2025-07-03 08:52:05] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 08:52:16] [Chrome] 프로필 디렉토리 파일 수: 5819개
+[2025-07-03 08:52:16] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 08:52:16] [Chrome] 새로운 옵션 생성: 23개
+[2025-07-03 08:52:16] [Chrome] PATH 환경변수 길이: 1239
+[2025-07-03 08:52:16] [Chrome] TEMP 디렉토리: C:\Users\GWANGG~1\AppData\Local\Temp
+[2025-07-03 08:52:16] [Chrome] undetected_chromedriver 호출 시작
+[2025-07-03 08:57:59] [Chrome] 드라이버 생성 시작
+[2025-07-03 08:57:59] [Chrome] Chrome 파일 확인: C:\Program Files\Google\Chrome\Application\chrome.exe
+[2025-07-03 08:58:10] [Chrome] Chrome 버전 확인 중 오류 (C:\Program Files\Google\Chrome\Application\chrome.exe): Command '['C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', '--version']' timed out after 10 seconds
+[2025-07-03 08:58:10] [Chrome] 파일 존재로 Chrome 설치 확인: C:\Program Files\Google\Chrome\Application\chrome.exe
+[2025-07-03 08:58:10] [Chrome] 사용자 지정 ChromeDriver 사용: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 08:58:10] [Chrome] 사용할 ChromeDriver: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 08:58:12] [Chrome] 현재 실행 중인 Chrome 프로세스: 25개
+[2025-07-03 08:58:12] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 08:58:17] [Chrome] 프로필 디렉토리 파일 수: 5821개
+[2025-07-03 08:58:17] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 08:58:17] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 08:58:17] [Chrome] 새로운 옵션 생성: 38개
+[2025-07-03 08:58:17] [Chrome] PATH 환경변수 길이: 1239
+[2025-07-03 08:58:17] [Chrome] TEMP 디렉토리: C:\Users\GWANGG~1\AppData\Local\Temp
+[2025-07-03 08:58:17] [Chrome] undetected_chromedriver 호출 시작
+[2025-07-03 08:59:38] [Chrome] 사용자 지정 ChromeDriver 사용: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 08:59:38] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 09:00:05] [Chrome] 브라우저 시작 시도 1 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:63792
+from chrome not reachable
+Stacktrace:
+	GetHandleVerifier [0x0x7ff768556f65+76917]
+	GetHandleVerifier [0x0x7ff768556fc0+77008]
+	(No symbol) [0x0x7ff768309c1c]
+	(No symbol) [0x0x7ff7682fada1]
+	(No symbol) [0x0x7ff76834cfd2]
+	(No symbol) [0x0x7ff768341d99]
+	(No symbol) [0x0x7ff768395e9e]
+	(No symbol) [0x0x7ff768395630]
+	(No symbol) [0x0x7ff768388243]
+	(No symbol) [0x0x7ff768351431]
+	(No symbol) [0x0x7ff7683521c3]
+	GetHandleVerifier [0x0x7ff76882d29d+3051437]
+	GetHandleVerifier [0x0x7ff7688278f3+3028483]
+	GetHandleVerifier [0x0x7ff76884588d+3151261]
+	GetHandleVerifier [0x0x7ff76857182e+185662]
+	GetHandleVerifier [0x0x7ff7685796ef+218111]
+	GetHandleVerifier [0x0x7ff76855fae4+112628]
+	GetHandleVerifier [0x0x7ff76855fc99+113065]
+	GetHandleVerifier [0x0x7ff768546c68+10616]
+	BaseThreadInitThunk [0x0x7ffd5ad87374+20]
+	RtlUserThreadStart [0x0x7ffd5bafcc91+33]
+
+[2025-07-03 09:00:05] [Chrome] 세션 생성 실패 - 포트 충돌 가능성
+[2025-07-03 09:00:05] [Chrome] 5초 대기 후 재시도
+[2025-07-03 09:00:10] [Chrome] 브라우저 시작 시도 2/3
+[2025-07-03 09:00:10] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 09:00:10] [Chrome] 새로운 옵션 생성: 38개
+[2025-07-03 09:00:10] [Chrome] PATH 환경변수 길이: 1239
+[2025-07-03 09:00:10] [Chrome] TEMP 디렉토리: C:\Users\GWANGG~1\AppData\Local\Temp
+[2025-07-03 09:00:10] [Chrome] undetected_chromedriver 호출 시작
+[2025-07-03 09:00:43] [Chrome] Chrome 설치 확인: 기존 브라우저 세션에서 여는 중입니다. (경로: C:\Program Files\Google\Chrome\Application\chrome.exe)
+[2025-07-03 09:00:43] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 09:00:43] [Chrome] 사용자 지정 ChromeDriver 사용: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 09:00:49] [Chrome] 사용자 지정 ChromeDriver 사용: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 09:00:49] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 09:01:25] [Chrome] 사용자 지정 ChromeDriver 사용: C:/chromedriver-win64/chromedriver.exe
+[2025-07-03 09:01:25] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 09:01:37] [Chrome] 브라우저 시작 시도 2 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:63981
+from chrome not reachable
+Stacktrace:
+	GetHandleVerifier [0x0x7ff799b26f65+76917]
+	GetHandleVerifier [0x0x7ff799b26fc0+77008]
+	(No symbol) [0x0x7ff7998d9c1c]
+	(No symbol) [0x0x7ff7998cada1]
+	(No symbol) [0x0x7ff79991cfd2]
+	(No symbol) [0x0x7ff799911d99]
+	(No symbol) [0x0x7ff799965e9e]
+	(No symbol) [0x0x7ff799965630]
+	(No symbol) [0x0x7ff799958243]
+	(No symbol) [0x0x7ff799921431]
+	(No symbol) [0x0x7ff7999221c3]
+	GetHandleVerifier [0x0x7ff799dfd29d+3051437]
+	GetHandleVerifier [0x0x7ff799df78f3+3028483]
+	GetHandleVerifier [0x0x7ff799e1588d+3151261]
+	GetHandleVerifier [0x0x7ff799b4182e+185662]
+	GetHandleVerifier [0x0x7ff799b496ef+218111]
+	GetHandleVerifier [0x0x7ff799b2fae4+112628]
+	GetHandleVerifier [0x0x7ff799b2fc99+113065]
+	GetHandleVerifier [0x0x7ff799b16c68+10616]
+	BaseThreadInitThunk [0x0x7ffd5ad87374+20]
+	RtlUserThreadStart [0x0x7ffd5bafcc91+33]
+
+[2025-07-03 09:01:37] [Chrome] 세션 생성 실패 - 포트 충돌 가능성
+[2025-07-03 09:01:37] [Chrome] 5초 대기 후 재시도
+[2025-07-03 09:01:42] [Chrome] 브라우저 시작 시도 3/3
+[2025-07-03 09:01:42] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 09:01:42] [Chrome] 새로운 옵션 생성: 38개
+[2025-07-03 09:01:42] [Chrome] PATH 환경변수 길이: 1239
+[2025-07-03 09:01:42] [Chrome] TEMP 디렉토리: C:\Users\GWANGG~1\AppData\Local\Temp
+[2025-07-03 09:01:42] [Chrome] undetected_chromedriver 호출 시작
+[2025-07-03 09:03:35] [Chrome] 브라우저 시작 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64112
+from chrome not reachable
+Stacktrace:
+	GetHandleVerifier [0x0x7ff765616f65+76917]
+	GetHandleVerifier [0x0x7ff765616fc0+77008]
+	(No symbol) [0x0x7ff7653c9c1c]
+	(No symbol) [0x0x7ff7653bada1]
+	(No symbol) [0x0x7ff76540cfd2]
+	(No symbol) [0x0x7ff765401d99]
+	(No symbol) [0x0x7ff765455e9e]
+	(No symbol) [0x0x7ff765455630]
+	(No symbol) [0x0x7ff765448243]
+	(No symbol) [0x0x7ff765411431]
+	(No symbol) [0x0x7ff7654121c3]
+	GetHandleVerifier [0x0x7ff7658ed29d+3051437]
+	GetHandleVerifier [0x0x7ff7658e78f3+3028483]
+	GetHandleVerifier [0x0x7ff76590588d+3151261]
+	GetHandleVerifier [0x0x7ff76563182e+185662]
+	GetHandleVerifier [0x0x7ff7656396ef+218111]
+	GetHandleVerifier [0x0x7ff76561fae4+112628]
+	GetHandleVerifier [0x0x7ff76561fc99+113065]
+	GetHandleVerifier [0x0x7ff765606c68+10616]
+	BaseThreadInitThunk [0x0x7ffd5ad87374+20]
+	RtlUserThreadStart [0x0x7ffd5bafcc91+33]
+
+[2025-07-03 09:03:35] [로그인] 크롬 실행 오류: Chrome 브라우저 시작 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64112
+from chrome not reachable
+Stacktrace:
+	GetHandleVerifier [0x0x7ff765616f65+76917]
+	GetHandleVerifier [0x0x7ff765616fc0+77008]
+	(No symbol) [0x0x7ff7653c9c1c]
+	(No symbol) [0x0x7ff7653bada1]
+	(No symbol) [0x0x7ff76540cfd2]
+	(No symbol) [0x0x7ff765401d99]
+	(No symbol) [0x0x7ff765455e9e]
+	(No symbol) [0x0x7ff765455630]
+	(No symbol) [0x0x7ff765448243]
+	(No symbol) [0x0x7ff765411431]
+	(No symbol) [0x0x7ff7654121c3]
+	GetHandleVerifier [0x0x7ff7658ed29d+3051437]
+	GetHandleVerifier [0x0x7ff7658e78f3+3028483]
+	GetHandleVerifier [0x0x7ff76590588d+3151261]
+	GetHandleVerifier [0x0x7ff76563182e+185662]
+	GetHandleVerifier [0x0x7ff7656396ef+218111]
+	GetHandleVerifier [0x0x7ff76561fae4+112628]
+	GetHandleVerifier [0x0x7ff76561fc99+113065]
+	GetHandleVerifier [0x0x7ff765606c68+10616]
+	BaseThreadInitThunk [0x0x7ffd5ad87374+20]
+	RtlUserThreadStart [0x0x7ffd5bafcc91+33]
+
+[2025-07-03 09:03:35] [서이추] 자동화 중 오류 발생: Chrome 브라우저 시작 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64112
+from chrome not reachable
+Stacktrace:
+	GetHandleVerifier [0x0x7ff765616f65+76917]
+	GetHandleVerifier [0x0x7ff765616fc0+77008]
+	(No symbol) [0x0x7ff7653c9c1c]
+	(No symbol) [0x0x7ff7653bada1]
+	(No symbol) [0x0x7ff76540cfd2]
+	(No symbol) [0x0x7ff765401d99]
+	(No symbol) [0x0x7ff765455e9e]
+	(No symbol) [0x0x7ff765455630]
+	(No symbol) [0x0x7ff765448243]
+	(No symbol) [0x0x7ff765411431]
+	(No symbol) [0x0x7ff7654121c3]
+	GetHandleVerifier [0x0x7ff7658ed29d+3051437]
+	GetHandleVerifier [0x0x7ff7658e78f3+3028483]
+	GetHandleVerifier [0x0x7ff76590588d+3151261]
+	GetHandleVerifier [0x0x7ff76563182e+185662]
+	GetHandleVerifier [0x0x7ff7656396ef+218111]
+	GetHandleVerifier [0x0x7ff76561fae4+112628]
+	GetHandleVerifier [0x0x7ff76561fc99+113065]
+	GetHandleVerifier [0x0x7ff765606c68+10616]
+	BaseThreadInitThunk [0x0x7ffd5ad87374+20]
+	RtlUserThreadStart [0x0x7ffd5bafcc91+33]
+
+[2025-07-03 09:03:53] [Chrome] 브라우저 시작 시도 3 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64129
+from chrome not reachable
+
+[2025-07-03 09:03:53] [Chrome] 세션 생성 실패 - 포트 충돌 가능성
+[2025-07-03 09:03:53] [Chrome] 모든 시도 실패. 최종 오류: Message: session not created: cannot connect to chrome at 127.0.0.1:64129
+from chrome not reachable
+
+[2025-07-03 09:03:53] [Chrome] 브라우저 시작 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64129
+from chrome not reachable
+
+[2025-07-03 09:03:53] [로그인] 크롬 실행 오류: Chrome 브라우저 시작 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64129
+from chrome not reachable
+
+[2025-07-03 09:03:53] [서이추] 자동화 중 오류 발생: Chrome 브라우저 시작 실패: Message: session not created: cannot connect to chrome at 127.0.0.1:64129
+from chrome not reachable
+
+[2025-07-03 10:51:06] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 10:51:06] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 10:51:30] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 10:51:30] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 10:51:30] [Chrome] 새로운 옵션 생성 완료
+[2025-07-03 10:56:45] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 10:56:45] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 10:57:18] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 10:57:18] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 10:57:52] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 10:57:52] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 10:57:52] [Chrome] 새로운 옵션 생성 완료
+[2025-07-03 12:22:06] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 12:22:06] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 12:22:53] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 12:22:53] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 12:22:53] [Chrome] 새로운 옵션 생성 완료
+[2025-07-03 12:32:05] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 12:32:05] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 12:32:43] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 12:32:43] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 12:32:43] [Chrome] 새로운 옵션 생성 완료
+[2025-07-03 12:36:49] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 12:36:49] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 12:37:24] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 12:37:24] [Chrome] 사용자 지정 프로필 사용: C:/ChromeProfile
+[2025-07-03 12:37:24] [Chrome] 새로운 옵션 생성 완료
+[2025-07-03 12:43:35] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 12:43:35] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 12:44:52] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 12:44:52] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 12:45:00] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 13:10:18] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 13:10:18] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 13:11:15] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 13:11:15] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 13:11:23] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 13:11:37] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 13:11:37] [로그인] 쿠키 로그인 시도
+[2025-07-03 13:11:37] [로그인] 미로그인 상태 - 페이지 소스 확인
+[2025-07-03 13:11:37] [로그인] 쿠키 만료, 직접 로그인 시도
+[2025-07-03 13:11:54] [로그인] 새로운 환경 알림 없음 또는 처리 실패
+[2025-07-03 13:11:54] [로그인] 로그인 성공 확인!
+[2025-07-03 13:11:54] [로그인] 쿠키 저장 완료: poohgod20 (13개)
+[2025-07-03 13:11:54] [로그인] 블로그 쿠키 동기화 완료 (단순화)
+[2025-07-03 13:11:54] [서이추] 자동화 시작 - 키워드: 강남역 맛집, 개수: 50
+[2025-07-03 13:11:54] [서이추] 키워드 '강남역 맛집' 검색 시작
+[2025-07-03 13:11:59] [서이추] 추출된 블로그 수: 30
+[2025-07-03 13:11:59] [서이추] 블로그 처리: https://blog.naver.com/moneyjoa1/223916176267
+[2025-07-03 13:12:04] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:12:06] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:12:08] [서이추] 다음 버튼 클릭
+[2025-07-03 13:12:10] [서이추] 메시지 입력 완료
+[2025-07-03 13:12:12] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:12:19] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 13:12:19] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 13:12:19] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 13:12:19] [서이추] 블로그 처리: https://blog.naver.com/marin35/223917845555
+[2025-07-03 13:12:24] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:12:35] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 13:12:35] [서이추] 블로그 처리: https://blog.naver.com/bests2u/223919657505
+[2025-07-03 13:12:38] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:12:41] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:12:42] [서이추] 다음 버튼 클릭
+[2025-07-03 13:12:50] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:12:50] [서이추] 블로그 처리: https://blog.naver.com/dlgptjd817/223915612560
+[2025-07-03 13:12:54] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:12:57] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:12:58] [서이추] 다음 버튼 클릭
+[2025-07-03 13:13:06] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:13:06] [서이추] 블로그 처리: https://blog.naver.com/pporee80/223910302494
+[2025-07-03 13:13:10] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:13:12] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:13:14] [서이추] 다음 버튼 클릭
+[2025-07-03 13:13:17] [서이추] 메시지 입력 완료
+[2025-07-03 13:13:18] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:13:24] [서이추] 서로이웃 신청 완료 (기본)
+[2025-07-03 13:13:24] [서이추] 블로그 처리: https://blog.naver.com/junseokkim21/223912315989
+[2025-07-03 13:13:33] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:13:45] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 13:13:45] [서이추] 블로그 처리: https://blog.naver.com/alley1980/223914110393
+[2025-07-03 13:13:51] [서이추] 서로이웃 상태 확인
+[2025-07-03 13:13:51] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 13:13:53] [서이추] 블로그 처리: https://blog.naver.com/sangil00/223893288809
+[2025-07-03 13:13:58] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:14:01] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 13:14:02] [서이추] 블로그 처리: https://blog.naver.com/cjssus2679/223891257482
+[2025-07-03 13:14:10] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:14:13] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:14:14] [서이추] 다음 버튼 클릭
+[2025-07-03 13:14:18] [서이추] 메시지 입력 완료
+[2025-07-03 13:14:21] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:14:27] [서이추] 서로이웃 신청 완료 (기본)
+[2025-07-03 13:14:27] [서이추] 블로그 처리: https://blog.naver.com/firstkokkiri/223911839256
+[2025-07-03 13:14:32] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:14:45] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 13:14:45] [서이추] 블로그 처리: https://blog.naver.com/dlgofl6974/223919842887
+[2025-07-03 13:14:51] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:14:57] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:14:59] [서이추] 다음 버튼 클릭
+[2025-07-03 13:15:02] [서이추] 메시지 입력 완료
+[2025-07-03 13:15:04] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:15:12] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 13:15:12] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 13:15:12] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 13:15:12] [서이추] 블로그 처리: https://blog.naver.com/beybey1260/223910275028
+[2025-07-03 13:15:17] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:15:20] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:15:22] [서이추] 다음 버튼 클릭
+[2025-07-03 13:15:25] [서이추] 메시지 입력 완료
+[2025-07-03 13:15:27] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:15:33] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 13:15:34] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 13:15:34] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 13:15:34] [서이추] 블로그 처리: https://blog.naver.com/dream_moon520/223914504074
+[2025-07-03 13:15:40] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:16:19] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:16:24] [서이추] 다음 버튼 클릭
+[2025-07-03 13:16:32] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:16:32] [서이추] 블로그 처리: https://blog.naver.com/ioioiv/223915699961
+[2025-07-03 13:17:02] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:17:05] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:17:07] [서이추] 다음 버튼 클릭
+[2025-07-03 13:17:15] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:17:15] [서이추] 블로그 처리: https://blog.naver.com/richsuin/223905405214
+[2025-07-03 13:17:27] [서이추] 서로이웃 상태 확인
+[2025-07-03 13:17:27] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 13:17:27] [서이추] 블로그 처리: https://blog.naver.com/lalalabell/223905161940
+[2025-07-03 13:17:33] [서이추] 서로이웃 상태 확인
+[2025-07-03 13:17:33] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 13:17:34] [서이추] 블로그 처리: https://blog.naver.com/d_hyg/223904899980
+[2025-07-03 13:17:40] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:17:43] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:17:44] [서이추] 다음 버튼 클릭
+[2025-07-03 13:17:52] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:17:52] [서이추] 블로그 처리: https://blog.naver.com/rlawotjd0304/223893344773
+[2025-07-03 13:17:56] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:18:00] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:18:01] [서이추] 다음 버튼 클릭
+[2025-07-03 13:18:09] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:18:09] [서이추] 블로그 처리: https://blog.naver.com/amu_yuc/223914221693
+[2025-07-03 13:18:15] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:18:18] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:18:19] [서이추] 다음 버튼 클릭
+[2025-07-03 13:18:27] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:18:27] [서이추] 블로그 처리: https://blog.naver.com/shaoren/223901358897
+[2025-07-03 13:18:34] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:18:38] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:18:39] [서이추] 다음 버튼 클릭
+[2025-07-03 13:18:47] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:18:47] [서이추] 블로그 처리: https://blog.naver.com/williamt2/223917527116
+[2025-07-03 13:18:52] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:18:58] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:18:59] [서이추] 다음 버튼 클릭
+[2025-07-03 13:19:07] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:19:07] [서이추] 블로그 처리: https://blog.naver.com/jintae009/223897469911
+[2025-07-03 13:19:13] [서이추] 서로이웃 상태 확인
+[2025-07-03 13:19:13] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 13:19:16] [서이추] 블로그 처리: https://blog.naver.com/jsvlar/223899835645
+[2025-07-03 13:19:24] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:19:27] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:19:28] [서이추] 다음 버튼 클릭
+[2025-07-03 13:19:36] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:19:37] [서이추] 블로그 처리: https://blog.naver.com/cocoagirl77/223919782981
+[2025-07-03 13:19:43] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:19:48] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:19:49] [서이추] 다음 버튼 클릭
+[2025-07-03 13:19:57] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:19:57] [서이추] 블로그 처리: https://blog.naver.com/eathari/223916464567
+[2025-07-03 13:20:04] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:20:06] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:20:08] [서이추] 다음 버튼 클릭
+[2025-07-03 13:20:16] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:20:16] [서이추] 블로그 처리: https://blog.naver.com/photoharu/223908831891
+[2025-07-03 13:20:23] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:20:27] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 13:20:28] [서이추] 블로그 처리: https://blog.naver.com/ean1004/223895143982
+[2025-07-03 13:20:44] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:20:48] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:20:50] [서이추] 다음 버튼 클릭
+[2025-07-03 13:20:53] [서이추] 메시지 입력 완료
+[2025-07-03 13:20:54] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:21:05] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 13:21:09] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 13:21:09] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 13:21:09] [서이추] 블로그 처리: https://blog.naver.com/rkely/223905231162
+[2025-07-03 13:21:19] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:21:22] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 13:21:23] [서이추] 블로그 처리: https://blog.naver.com/qhfk73/223911050158
+[2025-07-03 13:21:40] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:21:43] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:21:44] [서이추] 다음 버튼 클릭
+[2025-07-03 13:21:48] [서이추] 메시지 입력 완료
+[2025-07-03 13:21:49] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 13:22:02] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 13:22:02] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 13:22:02] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 13:22:02] [서이추] 블로그 처리: https://blog.naver.com/llllstyle/223899443288
+[2025-07-03 13:22:11] [서이추] 이웃추가 버튼 발견
+[2025-07-03 13:22:14] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 13:22:16] [서이추] 다음 버튼 클릭
+[2025-07-03 13:22:24] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 13:22:24] [서이추] 최종 결과: 성공 7, 실패 16, 패스 7
+[2025-07-03 14:51:07] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 14:51:07] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 14:51:29] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 14:51:29] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 14:51:32] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 14:51:37] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 14:51:37] [로그인] 쿠키 로그인 시도
+[2025-07-03 14:51:37] [로그인] 로그인 상태 가정 - 현재 URL: https://www.naver.com/
+[2025-07-03 14:51:37] [서이추] 자동화 시작 - 키워드: 교대역 맛집, 개수: 50
+[2025-07-03 14:51:37] [서이추] 키워드 '교대역 맛집' 검색 시작
+[2025-07-03 14:51:44] [서이추] 추출된 블로그 수: 30
+[2025-07-03 14:51:44] [서이추] 블로그 처리: https://blog.naver.com/kizaki56/223905160346
+[2025-07-03 14:51:51] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:51:53] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:51:55] [서이추] 다음 버튼 클릭
+[2025-07-03 14:52:03] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:52:03] [서이추] 블로그 처리: https://blog.naver.com/sunnyssam73/223894081057
+[2025-07-03 14:52:07] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:52:09] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:52:10] [서이추] 다음 버튼 클릭
+[2025-07-03 14:52:18] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:52:18] [서이추] 블로그 처리: https://blog.naver.com/offspring84/223899929281
+[2025-07-03 14:52:23] [서이추] 서로이웃 상태 확인
+[2025-07-03 14:52:23] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 14:52:27] [서이추] 블로그 처리: https://blog.naver.com/sielle83/223908709866
+[2025-07-03 14:52:31] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:52:33] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:52:35] [서이추] 다음 버튼 클릭
+[2025-07-03 14:52:43] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:52:43] [서이추] 블로그 처리: https://blog.naver.com/ulkeuni96/223912339414
+[2025-07-03 14:52:46] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:52:50] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 14:52:51] [서이추] 블로그 처리: https://blog.naver.com/nabeemin/223891719444
+[2025-07-03 14:52:55] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:52:57] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:52:58] [서이추] 다음 버튼 클릭
+[2025-07-03 14:53:02] [서이추] 메시지 입력 완료
+[2025-07-03 14:53:03] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 14:53:10] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 14:53:10] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 14:53:10] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 14:53:10] [서이추] 블로그 처리: https://blog.naver.com/minsha321/223911422620
+[2025-07-03 14:53:14] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:53:17] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:53:18] [서이추] 다음 버튼 클릭
+[2025-07-03 14:53:21] [서이추] 메시지 입력 완료
+[2025-07-03 14:53:23] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 14:53:29] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 14:53:29] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 14:53:29] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 14:53:29] [서이추] 블로그 처리: https://blog.naver.com/comiham/223892034374
+[2025-07-03 14:53:32] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:53:35] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:53:37] [서이추] 다음 버튼 클릭
+[2025-07-03 14:53:45] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:53:45] [서이추] 블로그 처리: https://blog.naver.com/brightding/223896870718
+[2025-07-03 14:53:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:53:53] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:53:54] [서이추] 다음 버튼 클릭
+[2025-07-03 14:54:02] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:54:02] [서이추] 블로그 처리: https://blog.naver.com/purulover/223904798798
+[2025-07-03 14:54:06] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:54:17] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 14:54:17] [서이추] 블로그 처리: https://blog.naver.com/cloudnine220/223913163951
+[2025-07-03 14:54:20] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:54:31] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 14:54:31] [서이추] 블로그 처리: https://blog.naver.com/train95/223902375951
+[2025-07-03 14:54:35] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:54:37] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:54:38] [서이추] 다음 버튼 클릭
+[2025-07-03 14:54:46] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:54:46] [서이추] 블로그 처리: https://blog.naver.com/kpi0320/223917781425
+[2025-07-03 14:54:49] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:54:51] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:54:53] [서이추] 다음 버튼 클릭
+[2025-07-03 14:55:00] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:55:01] [서이추] 블로그 처리: https://blog.naver.com/cjh2748/223905147235
+[2025-07-03 14:55:06] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:55:08] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:55:10] [서이추] 다음 버튼 클릭
+[2025-07-03 14:55:17] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:55:18] [서이추] 블로그 처리: https://blog.naver.com/yeonjuoh620/223909645721
+[2025-07-03 14:55:22] [서이추] 서로이웃 상태 확인
+[2025-07-03 14:55:22] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 14:55:25] [서이추] 블로그 처리: https://blog.naver.com/kimcrystal525/223914456198
+[2025-07-03 14:55:30] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:55:33] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:55:34] [서이추] 다음 버튼 클릭
+[2025-07-03 14:55:42] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:55:42] [서이추] 블로그 처리: https://blog.naver.com/fghy1234/223919685944
+[2025-07-03 14:55:46] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:55:48] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:55:49] [서이추] 다음 버튼 클릭
+[2025-07-03 14:55:57] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:55:57] [서이추] 블로그 처리: https://blog.naver.com/dog4495/223897639948
+[2025-07-03 14:56:00] [서이추] 서로이웃 상태 확인
+[2025-07-03 14:56:00] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 14:56:05] [서이추] 블로그 처리: https://blog.naver.com/ppoyayj/223920133118
+[2025-07-03 14:56:09] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:56:11] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 14:56:12] [서이추] 블로그 처리: https://blog.naver.com/yije_7/223912995120
+[2025-07-03 14:56:16] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:56:19] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:56:20] [서이추] 다음 버튼 클릭
+[2025-07-03 14:56:23] [서이추] 메시지 입력 완료
+[2025-07-03 14:56:24] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 14:56:31] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 14:56:31] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 14:56:31] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 14:56:31] [서이추] 블로그 처리: https://blog.naver.com/goindol71/223916054101
+[2025-07-03 14:56:36] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:56:38] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:56:40] [서이추] 다음 버튼 클릭
+[2025-07-03 14:56:48] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:56:48] [서이추] 블로그 처리: https://blog.naver.com/rhdwnehf/223888920297
+[2025-07-03 14:56:51] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:57:03] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 14:57:03] [서이추] 블로그 처리: https://blog.naver.com/crew0729/223898244037
+[2025-07-03 14:57:10] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:57:22] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 14:57:22] [서이추] 블로그 처리: https://blog.naver.com/alley1980/223909238403
+[2025-07-03 14:57:25] [서이추] 서로이웃 상태 확인
+[2025-07-03 14:57:26] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 14:57:28] [서이추] 블로그 처리: https://blog.naver.com/mangch91/223917150729
+[2025-07-03 14:57:34] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:57:36] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:57:37] [서이추] 다음 버튼 클릭
+[2025-07-03 14:57:45] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 14:57:45] [서이추] 블로그 처리: https://blog.naver.com/sara0205/223914167105
+[2025-07-03 14:57:49] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:57:51] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 14:57:54] [서이추] 블로그 처리: https://blog.naver.com/gamzablog/223916175375
+[2025-07-03 14:57:56] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:57:59] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:58:00] [서이추] 다음 버튼 클릭
+[2025-07-03 14:58:04] [서이추] 메시지 입력 완료
+[2025-07-03 14:58:05] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 14:58:12] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 14:58:12] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 14:58:13] [서이추] 블로그 처리: https://blog.naver.com/dirty12838/223902147833
+[2025-07-03 14:58:17] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:58:28] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 14:58:28] [서이추] 블로그 처리: https://blog.naver.com/dh_review/223901629598
+[2025-07-03 14:58:32] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:58:35] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:58:36] [서이추] 다음 버튼 클릭
+[2025-07-03 14:58:39] [서이추] 메시지 입력 완료
+[2025-07-03 14:58:41] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 14:58:47] [서이추] 서로이웃 신청 완료 (기본)
+[2025-07-03 14:58:47] [서이추] 블로그 처리: https://blog.naver.com/eatravel_827/223904413357
+[2025-07-03 14:58:50] [서이추] 이웃추가 버튼 발견
+[2025-07-03 14:58:54] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 14:58:55] [서이추] 다음 버튼 클릭
+[2025-07-03 14:58:58] [서이추] 메시지 입력 완료
+[2025-07-03 14:59:00] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 14:59:07] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 14:59:07] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 14:59:07] [서이추] 최종 결과: 성공 6, 실패 17, 패스 7
+[2025-07-03 15:01:26] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 15:01:26] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 15:01:48] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 15:01:48] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 15:01:50] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 15:01:56] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 15:01:56] [로그인] 쿠키 로그인 시도
+[2025-07-03 15:01:57] [로그인] 로그인 상태 가정 - 현재 URL: https://www.naver.com/
+[2025-07-03 15:01:57] [서이추] 자동화 시작 - 키워드: 서초역 맛집, 개수: 50
+[2025-07-03 15:01:57] [서이추] 키워드 '서초역 맛집' 검색 시작
+[2025-07-03 15:02:02] [서이추] 추출된 블로그 수: 30
+[2025-07-03 15:02:02] [서이추] 블로그 처리: https://blog.naver.com/goindol71/223911912916
+[2025-07-03 15:02:10] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:02:12] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:02:14] [서이추] 다음 버튼 클릭
+[2025-07-03 15:02:22] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:02:22] [서이추] 블로그 처리: https://blog.naver.com/kdkk_/223916958604
+[2025-07-03 15:02:26] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:02:26] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:02:29] [서이추] 블로그 처리: https://blog.naver.com/rammiya/223899976666
+[2025-07-03 15:02:32] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:02:34] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:02:35] [서이추] 다음 버튼 클릭
+[2025-07-03 15:02:43] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:02:43] [서이추] 블로그 처리: https://blog.naver.com/cy4788/223908534599
+[2025-07-03 15:02:45] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:02:48] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:02:49] [서이추] 다음 버튼 클릭
+[2025-07-03 15:02:58] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:02:58] [서이추] 블로그 처리: https://blog.naver.com/bigju_ick/223889538463
+[2025-07-03 15:03:02] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:03:04] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:03:05] [서이추] 다음 버튼 클릭
+[2025-07-03 15:03:08] [서이추] 메시지 입력 완료
+[2025-07-03 15:03:11] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:03:17] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:03:17] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:03:17] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:03:17] [서이추] 블로그 처리: https://blog.naver.com/jju-daily/223909603040
+[2025-07-03 15:03:21] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:03:23] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:03:25] [서이추] 다음 버튼 클릭
+[2025-07-03 15:03:33] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:03:33] [서이추] 블로그 처리: https://blog.naver.com/thesun03_1/223909654899
+[2025-07-03 15:03:37] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:03:49] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:03:49] [서이추] 블로그 처리: https://blog.naver.com/aofl514/223892367893
+[2025-07-03 15:03:52] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:03:54] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:03:56] [서이추] 다음 버튼 클릭
+[2025-07-03 15:03:59] [서이추] 메시지 입력 완료
+[2025-07-03 15:04:01] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:04:07] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:04:07] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:04:07] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:04:07] [서이추] 블로그 처리: https://blog.naver.com/lhm381/223896539749
+[2025-07-03 15:04:12] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:04:23] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:04:23] [서이추] 블로그 처리: https://blog.naver.com/brave1011/223894455494
+[2025-07-03 15:04:27] [서이추] 서로이웃 상태 확인
+[2025-07-03 15:04:27] [서이추] 이미 서로이웃 (pass)
+[2025-07-03 15:04:29] [서이추] 블로그 처리: https://blog.naver.com/pizzzzza1/223912636186
+[2025-07-03 15:04:33] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:04:35] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:04:36] [서이추] 다음 버튼 클릭
+[2025-07-03 15:04:44] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:04:44] [서이추] 블로그 처리: https://blog.naver.com/jjini127/223900669229
+[2025-07-03 15:04:47] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:04:50] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:04:51] [서이추] 다음 버튼 클릭
+[2025-07-03 15:04:59] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:05:00] [서이추] 블로그 처리: https://blog.naver.com/lana_33/223909381757
+[2025-07-03 15:05:04] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:05:06] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:05:07] [서이추] 다음 버튼 클릭
+[2025-07-03 15:05:15] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:05:15] [서이추] 블로그 처리: https://blog.naver.com/qwer54041/223915529999
+[2025-07-03 15:05:19] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:05:31] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:05:31] [서이추] 블로그 처리: https://blog.naver.com/if_i_saw_u/223904485063
+[2025-07-03 15:05:33] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:05:35] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:05:36] [서이추] 다음 버튼 클릭
+[2025-07-03 15:05:44] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:05:44] [서이추] 블로그 처리: https://blog.naver.com/technical_rally/223904131096
+[2025-07-03 15:05:48] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:05:51] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:05:52] [서이추] 다음 버튼 클릭
+[2025-07-03 15:06:00] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:06:00] [서이추] 블로그 처리: https://blog.naver.com/maysundayusa/223894970675
+[2025-07-03 15:06:04] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:06:06] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:06:07] [서이추] 다음 버튼 클릭
+[2025-07-03 15:06:15] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:06:15] [서이추] 블로그 처리: https://blog.naver.com/alice042626/223911824264
+[2025-07-03 15:06:18] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:06:20] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:06:22] [서이추] 다음 버튼 클릭
+[2025-07-03 15:06:29] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:06:30] [서이추] 블로그 처리: https://blog.naver.com/rynryn11/223891556889
+[2025-07-03 15:06:37] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:06:39] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:06:41] [서이추] 다음 버튼 클릭
+[2025-07-03 15:06:48] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:06:49] [서이추] 블로그 처리: https://blog.naver.com/qhfgkdid12/223916424989
+[2025-07-03 15:06:53] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:06:55] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:06:56] [서이추] 다음 버튼 클릭
+[2025-07-03 15:06:59] [서이추] 메시지 입력 완료
+[2025-07-03 15:07:01] [서이추] 최종 다음 버튼 클릭
+[2025-07-03 15:07:08] [서이추] 서로이웃 신청 완료 페이지 확인
+[2025-07-03 15:07:08] [서이추] 닫기 버튼 클릭 (즉시)
+[2025-07-03 15:07:08] [서이추] 팝업창 닫기 중 오류 (무시): Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=138.0.7204.97)
+Stacktrace:
+	GetHandleVerifier [0x0x834553+62419]
+	GetHandleVerifier [0x0x834594+62484]
+	(No symbol) [0x0x672133]
+	(No symbol) [0x0x650fd9]
+	(No symbol) [0x0x6e5b9e]
+	(No symbol) [0x0x6ed83b]
+	(No symbol) [0x0x6df433]
+	(No symbol) [0x0x6ae852]
+	(No symbol) [0x0x6af6f4]
+	GetHandleVerifier [0x0xaa4833+2619059]
+	GetHandleVerifier [0x0xa9fc4a+2599626]
+	GetHandleVerifier [0x0x85b0fa+221050]
+	GetHandleVerifier [0x0x84b378+156152]
+	GetHandleVerifier [0x0x851d2d+183213]
+	GetHandleVerifier [0x0x83c438+94904]
+	GetHandleVerifier [0x0x83c5c2+95298]
+	GetHandleVerifier [0x0x82771a+9626]
+	BaseThreadInitThunk [0x0x771efcc9+25]
+	RtlGetAppContainerNamedObjectPath [0x0x775582ae+286]
+	RtlGetAppContainerNamedObjectPath [0x0x7755827e+238]
+
+[2025-07-03 15:07:08] [서이추] 블로그 처리: https://blog.naver.com/tkrhksk12/223890348687
+[2025-07-03 15:07:12] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:07:23] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:07:23] [서이추] 블로그 처리: https://blog.naver.com/minpil0312/223915283098
+[2025-07-03 15:07:28] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:07:31] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:07:33] [서이추] 블로그 처리: https://blog.naver.com/s_sari/223898883916
+[2025-07-03 15:07:38] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:07:41] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:07:42] [서이추] 다음 버튼 클릭
+[2025-07-03 15:07:50] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:07:50] [서이추] 블로그 처리: https://blog.naver.com/j4128043/223889477202
+[2025-07-03 15:07:54] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:08:05] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:08:05] [서이추] 블로그 처리: https://blog.naver.com/alrud7877/223892625228
+[2025-07-03 15:08:11] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:08:13] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:08:14] [서이추] 다음 버튼 클릭
+[2025-07-03 15:08:22] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:08:22] [서이추] 블로그 처리: https://blog.naver.com/thesun03_1/223894403915
+[2025-07-03 15:08:26] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:08:29] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:08:30] [서이추] 다음 버튼 클릭
+[2025-07-03 15:08:38] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:08:38] [서이추] 블로그 처리: https://blog.naver.com/sielle83/223908770960
+[2025-07-03 15:08:42] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:08:45] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:08:47] [서이추] 다음 버튼 클릭
+[2025-07-03 15:08:54] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:08:55] [서이추] 블로그 처리: https://blog.naver.com/yeonylifeonly/223912585655
+[2025-07-03 15:08:58] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:09:02] [서이추] 서로이웃을 받지 않는 블로거 (disabled)
+[2025-07-03 15:09:04] [서이추] 블로그 처리: https://blog.naver.com/sowoonthdns/223912684982
+[2025-07-03 15:09:10] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:09:12] [서이추] 서로이웃 옵션 선택 (label)
+[2025-07-03 15:09:13] [서이추] 다음 버튼 클릭
+[2025-07-03 15:09:21] [서이추] 메시지 입력창 찾기 실패
+[2025-07-03 15:09:22] [서이추] 블로그 처리: https://blog.naver.com/dailyddo/223887520464
+[2025-07-03 15:09:29] [서이추] 이웃추가 버튼 발견
+[2025-07-03 15:09:41] [서이추] 이웃추가 팝업 창 없음
+[2025-07-03 15:09:41] [서이추] 최종 결과: 성공 3, 실패 23, 패스 4
+[2025-07-03 15:15:40] [Chrome] 브라우저 시작 시도 1/3
+[2025-07-03 15:15:40] [Chrome] ChromeDriver 자동 관리 시작...
+[2025-07-03 15:16:21] [Chrome] ChromeDriver 준비 완료: C:\Users\GwangGyuKim\.wdm\drivers\chromedriver\win64\138.0.7204.92\chromedriver-win32/chromedriver.exe
+[2025-07-03 15:16:21] [Chrome] 간단한 옵션으로 드라이버 생성 시도...
+[2025-07-03 15:16:29] [Chrome] 브라우저 시작 성공 (시도 1/3)
+[2025-07-03 15:16:50] [로그인] 쿠키 적용 완료: poohgod20 (13개)
+[2025-07-03 15:16:50] [로그인] 쿠키 로그인 시도
+[2025-07-03 15:16:58] [로그인] 미로그인 상태 - 페이지 소스 확인
+[2025-07-03 15:16:58] [로그인] 쿠키 만료, 직접 로그인 시도
