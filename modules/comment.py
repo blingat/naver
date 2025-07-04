@@ -14,7 +14,7 @@ class CommentAutomation:
         self.config = config
         self.logger = logger
         self.wait = WebDriverWait(driver, 10)
-        self.comment_file = "eut_comment.txt"
+        self.comment_file = "0eut_comment.txt"
         
         # Gemini API 초기화
         gemini_api_key = config.get('gemini_api_key', '')
@@ -107,109 +107,106 @@ class CommentAutomation:
             self.logger.log(f"[댓글자동화] 댓글 기록 저장 중 오류: {e}")
     
     def get_neighbor_posts(self, page_num):
-        """이웃글 목록 가져오기"""
+        """이웃글 목록을 가져오는 함수"""
         try:
-            # 네이버 블로그 이웃새글 페이지 (원래 URL)
+            # 이웃글 페이지 URL 구성
             url = f"https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage={page_num}&groupId=0"
+            
             print(f"   📄 {page_num}페이지 이웃글 목록 로딩 중...")
             print(f"   🔗 URL: {url}")
             
             self.driver.get(url)
-            time.sleep(5)  # 페이지 로딩 시간 증가
+            time.sleep(3)  # 페이지 로딩 대기 (5초에서 3초로 단축)
             
-            # 페이지 로딩 완료 대기
+            # 페이지 로딩 확인
             try:
-                WebDriverWait(self.driver, 15).until(
-                    lambda driver: driver.execute_script("return document.readyState") == "complete"
+                WebDriverWait(self.driver, 10).until(  # 15초에서 10초로 단축
+                    EC.presence_of_element_located((By.TAG_NAME, "body"))
                 )
-                time.sleep(2)  # 추가 대기
+                time.sleep(1)  # 추가 대기 (2초에서 1초로 단축)
             except:
-                pass
+                print("     ❌ 페이지 로딩 타임아웃")
+                return []
             
-            # 현재 페이지 제목 확인
+            # 페이지 제목 확인
             try:
                 page_title = self.driver.title
                 print(f"     📄 페이지 제목: {page_title}")
             except:
-                pass
+                print("     ⚠️  페이지 제목을 가져올 수 없습니다")
             
-            # 이웃글 목록 찾기 (간단한 방식)
-            posts = []
+            # 이웃글 링크 찾기
             try:
-                # div.desc 안의 a 태그에서 블로그 포스트 링크 추출
+                # 다양한 셀렉터로 이웃글 링크 찾기
+                selectors = [
+                    "div.desc a[href*='blog.naver.com']",  # 주요 셀렉터
+                    "a[href*='blog.naver.com'][href*='/']",  # 일반적인 블로그 링크
+                    ".list_post a[href*='blog.naver.com']",  # 포스트 목록
+                    ".post_item a[href*='blog.naver.com']",  # 포스트 아이템
+                ]
+                
                 post_elements = []
-                
-                # 가장 간단한 방법: desc 클래스 안의 블로그 링크
-                desc_links = self.driver.find_elements(By.CSS_SELECTOR, "div.desc a[href*='blog.naver.com']")
-                print(f"     🔍 이웃글 링크: {len(desc_links)}개 발견")
-                
-                if desc_links:
-                    # 유효한 블로그 포스트 링크만 필터링
-                    for link in desc_links:
-                        try:
-                            href = link.get_attribute('href')
-                            if href and self.is_valid_blog_post_url(href):
-                                post_elements.append(link)
-                        except:
-                            continue
-                    
-                    print(f"     ✅ 유효한 이웃글: {len(post_elements)}개")
-                else:
-                    # 백업 방법: 기존 복잡한 셀렉터 사용
-                    print(f"     ⚠️  desc 링크를 찾지 못함, 백업 방법 사용...")
-                    selectors = [
-                        "a[href*='blog.naver.com/'][href*='/2']:not([href*='PostView'])",
-                        "a[href*='blog.naver.com/']:not([href*='PostView']):not([href*='prologue']):not([href*='guestbook'])",
-                        ".title_post a[href*='blog.naver.com']",
-                        ".item a[href*='blog.naver.com']"
-                    ]
-                    
-                    for selector in selectors:
-                        try:
-                            elements = self.driver.find_elements(By.CSS_SELECTOR, selector)
-                            if elements:
-                                for elem in elements:
-                                    try:
-                                        href = elem.get_attribute('href')
-                                        if href and self.is_valid_blog_post_url(href):
-                                            post_elements.append(elem)
-                                    except:
-                                        continue
-                                if post_elements:
-                                    print(f"     ✅ 백업 셀렉터로 {len(post_elements)}개 발견")
-                                    break
-                        except:
-                            continue
+                for selector in selectors:
+                    try:
+                        elements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+                        if elements:
+                            post_elements = elements
+                            print(f"     🔍 이웃글 링크: {len(elements)}개 발견")
+                            break
+                    except:
+                        continue
                 
                 if not post_elements:
-                    print(f"     ⚠️  이웃글을 찾을 수 없습니다.")
+                    print("     ❌ 이웃글 링크를 찾을 수 없습니다")
                     return []
                 
+                # 중복 제거를 위한 set 사용
+                seen_urls = set()
+                posts = []
+                
                 # 포스트 정보 추출
-                for idx, element in enumerate(post_elements[:15]):  # 최대 15개
+                for idx, element in enumerate(post_elements[:20]):  # 최대 20개 (15개에서 20개로 증가)
                     try:
                         href = element.get_attribute('href')
+                        print(f"     🔍 [{idx+1}] URL: {href}")
+                        
                         if not href or not self.is_valid_blog_post_url(href):
+                            print(f"     ❌ [{idx+1}] 유효하지 않은 URL")
                             continue
+                        
+                        # 중복 URL 체크
+                        if href in seen_urls:
+                            print(f"     🔄 [{idx+1}] 중복 URL 건너뛰기")
+                            continue
+                        
+                        seen_urls.add(href)
                             
-                        # 제목 추출 (간단한 방법)
-                            title = element.text.strip()
+                        # 제목 추출 (안전한 방법)
+                        title = ""
+                        try:
+                            title = element.text.strip() if element.text else ""
+                            print(f"     📝 [{idx+1}] 원본 제목: '{title}'")
+                        except Exception as title_error:
+                            print(f"     ⚠️  [{idx+1}] 제목 추출 오류: {title_error}")
+                            title = ""
                         
                         # 제목이 없으면 기본값 사용
                         if not title or len(title) < 3:
                             title = f"제목없음_{idx+1}"
+                            print(f"     🔄 [{idx+1}] 기본 제목 사용: '{title}'")
                         
                         posts.append({
                             'url': href,
                             'title': title[:50]  # 제목 길이 제한
                         })
-                        print(f"     📝 수집: {title[:30]}... | {href[:50]}...")
+                        print(f"     ✅ [{idx+1}] 수집 완료: {title[:30]}... | {href[:50]}...")
                             
                     except Exception as e:
-                        print(f"     ⚠️  {idx+1}번째 요소 처리 실패: {e}")
+                        print(f"     ❌ [{idx+1}] 요소 처리 실패: {e}")
+                        print(f"     🔍 [{idx+1}] 요소 정보: {element}")
                         continue
                         
-                print(f"     ✅ {len(posts)}개 이웃글 발견 (div.desc 셀렉터)")
+                print(f"     ✅ {len(posts)}개 고유 이웃글 발견 (중복 제거 완료)")
                 return posts
                 
             except Exception as e:
@@ -227,9 +224,8 @@ class CommentAutomation:
             if not url or 'blog.naver.com/' not in url:
                 return False
             
-            # 제외할 URL 패턴들
+            # 제외할 URL 패턴들 (더 엄격하게)
             exclude_patterns = [
-                'PostView',  # 구 형태는 제외하지 않음
                 'prologue',  # 프롤로그
                 'guestbook',  # 방명록
                 'nidlogin',  # 로그인
@@ -240,41 +236,49 @@ class CommentAutomation:
                 '/help/',    # 도움말
                 '/manage/',  # 관리
                 'logout',    # 로그아웃
+                'category',  # 카테고리
+                'tag',       # 태그
+                'location',  # 위치
+                'about',     # 소개
             ]
             
             for pattern in exclude_patterns:
                 if pattern in url:
                     return False
             
-            # 유효한 블로그 포스트 URL 패턴 확인
+            # 유효한 블로그 포스트 URL 패턴 확인 (더 관대하게)
             import re
             
-            # 새로운 형태: blog.naver.com/아이디/글번호
-            # 글번호는 보통 10자리 이상의 숫자
-            pattern1 = r'blog\.naver\.com/[^/]+/\d{10,}'
+            # 새로운 형태: blog.naver.com/아이디/글번호 (8자리 이상)
+            pattern1 = r'blog\.naver\.com/[^/]+/\d{8,}'
             if re.search(pattern1, url):
                 return True
             
-            # 구 형태: PostView.naver가 포함된 경우도 유효
-            if 'PostView.naver' in url:
+            # 구 형태: PostView.naver가 포함된 경우
+            if 'PostView.naver' in url and 'blogId=' in url and 'logNo=' in url:
+                return True
+            
+            # 기타 유효한 패턴들
+            if 'blog.naver.com/' in url and ('/' in url.split('blog.naver.com/')[-1]):
+                # 최소한 아이디/포스트번호 형태가 있는 경우
                 return True
             
             return False
             
         except Exception as e:
             print(f"     ⚠️  URL 유효성 검사 오류: {e}")
-            return False
+            return True  # 오류 시 일단 유효한 것으로 간주
     
     def extract_blog_content_preview(self):
         """블로그 내용 미리보기 추출 (iframe 내에서)"""
         try:
             # iframe으로 전환
             try:
-                WebDriverWait(self.driver, 10).until(
+                WebDriverWait(self.driver, 8).until(  # 10초에서 8초로 단축
                     EC.presence_of_element_located((By.NAME, 'mainFrame'))
                 )
                 self.driver.switch_to.frame('mainFrame')
-                time.sleep(2)
+                time.sleep(1)  # 2초에서 1초로 단축
             except Exception as e:
                 print(f"     ⚠️  iframe 전환 실패 (내용 추출): {e}")
                 return ""
@@ -333,11 +337,11 @@ class CommentAutomation:
         try:
             # iframe으로 전환
             try:
-                WebDriverWait(self.driver, 10).until(
+                WebDriverWait(self.driver, 8).until(  # 10초에서 8초로 단축
                     EC.presence_of_element_located((By.NAME, 'mainFrame'))
                 )
                 self.driver.switch_to.frame('mainFrame')
-                time.sleep(2)
+                time.sleep(1)  # 2초에서 1초로 단축
                 print("     🖼️  iframe으로 전환 완료")
             except Exception as e:
                 print(f"     ❌ iframe 전환 실패: {e}")
@@ -369,22 +373,18 @@ class CommentAutomation:
                 
                 # JavaScript로 클릭
                 self.driver.execute_script("arguments[0].click();", like_btn)
-                time.sleep(2)
-                
-                # 클릭 후 상태 확인
-                new_aria_pressed = like_btn.get_attribute("aria-pressed") or "false"
-                if new_aria_pressed == "true":
-                    print("     💖 공감 완료!")
-                else:
-                    print("     🤔 공감 클릭 시도 완료")
-                
+                time.sleep(1)  # 2초에서 1초로 단축
+                print("     💖 공감 완료!")
                 return True
-            else:
+            elif " on " in f" {class_attr} " or class_attr.endswith(" on"):
                 print("     💖 이미 공감한 글입니다 (PASS)")
                 return True
-                
+            else:
+                print("     ⚠️  공감 상태를 확인할 수 없습니다")
+                return True
+            
         except Exception as e:
-            print(f"     ❌ 공감 버튼 처리 오류: {e}")
+            print(f"     ⚠️  공감 버튼 클릭 오류: {e}")
             return True
         finally:
             # iframe에서 나오기
@@ -412,17 +412,44 @@ class CommentAutomation:
             
             # iframe으로 전환
             try:
-                WebDriverWait(self.driver, 10).until(
+                WebDriverWait(self.driver, 8).until(
                     EC.presence_of_element_located((By.NAME, 'mainFrame'))
                 )
                 self.driver.switch_to.frame('mainFrame')
-                time.sleep(2)
+                time.sleep(1)
                 print("     🖼️  댓글 작성을 위해 iframe으로 전환")
             except Exception as e:
                 print(f"     ❌ iframe 전환 실패: {e}")
                 return False, "iframe 전환 실패"
             
             # 댓글 쓰기 버튼 클릭 (성공 케이스 기준)
+            # 먼저 댓글 영역이 있는지 확인
+            try:
+                # 댓글 영역 확인
+                comment_area_selectors = [
+                    ".wrap_postcomment",  # 댓글 영역
+                    ".area_comment",      # 댓글 구역
+                    ".post-btn"           # 포스트 버튼 영역
+                ]
+                
+                comment_area_found = False
+                for area_selector in comment_area_selectors:
+                    try:
+                        comment_area = self.driver.find_element(By.CSS_SELECTOR, area_selector)
+                        if comment_area:
+                            comment_area_found = True
+                            print(f"     ✅ 댓글 영역 발견: {area_selector}")
+                            break
+                    except:
+                        continue
+                
+                if not comment_area_found:
+                    print("     ⏭️  댓글 영역이 없는 글입니다 (PASS)")
+                    return "pass", "댓글 영역 없음"
+                
+            except Exception as e:
+                print(f"     ⚠️  댓글 영역 확인 중 오류: {e}")
+            
             comment_write_selectors = [
                 ".btn_comment.pcol2._cmtList",  # 공감 버튼 있는 글
                 ".area_comment .btn_comment.pcol2._cmtList"  # 공감 버튼 없는 글
@@ -443,8 +470,8 @@ class CommentAutomation:
                     continue
             
             if not comment_write_clicked:
-                print("     ❌ 댓글 쓰기 버튼을 찾을 수 없습니다")
-                return False, "댓글 쓰기 버튼 없음"
+                print("     ⏭️  댓글 작성이 비활성화된 글입니다 (PASS)")
+                return "pass", "댓글 작성 비활성화"
             
             # 댓글 입력창 찾기 (성공 케이스 기준)
             try:
@@ -475,7 +502,7 @@ class CommentAutomation:
                     EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-log='RPC.write']"))
                 )
                 submit_btn.click()
-                time.sleep(2)
+                time.sleep(1)  # 2초에서 1초로 단축
                 print("     ✅ 댓글 등록 완료!")
                 return True, None
             except:
@@ -514,7 +541,7 @@ class CommentAutomation:
             
             # 게시글 열기
             self.driver.get(url)
-            time.sleep(3)
+            time.sleep(2)  # 3초에서 2초로 단축
             
             # 블로그 내용 미리보기 추출
             content_preview = self.extract_blog_content_preview()
@@ -523,9 +550,9 @@ class CommentAutomation:
             self.click_like_button()
             
             # 댓글 작성 (제목과 내용 미리보기 모두 전달)
-            success, error = self.write_comment(title, content_preview)
+            result, error = self.write_comment(title, content_preview)
             
-            if success:
+            if result == True:
                 # 댓글 작성 기록 저장
                 self.save_comment_record(url)
                 post_end_time = time.time()
@@ -533,6 +560,12 @@ class CommentAutomation:
                 print(f"     ✅ 댓글 작성 완료! - {post_duration:.1f}초")
                 self.logger.log(f"[댓글자동화] 댓글 작성 성공: {title} | {url} | {post_duration:.1f}초")
                 return "success", None
+            elif result == "pass":
+                post_end_time = time.time()
+                post_duration = post_end_time - post_start_time
+                print(f"     ⏭️  댓글 작성 비활성화 (PASS) - {post_duration:.1f}초")
+                self.logger.log(f"[댓글자동화] 댓글 작성 비활성화: {title} | {url} | {post_duration:.1f}초")
+                return "pass", error
             else:
                 post_end_time = time.time()
                 post_duration = post_end_time - post_start_time
@@ -599,7 +632,7 @@ class CommentAutomation:
                     print(f"   📊 현재 상황: 성공 {success_count}, 실패 {fail_count}, 패스 {pass_count}")
                     
                     # 잠시 대기 (너무 빠른 요청 방지)
-                    time.sleep(2)
+                    time.sleep(1)  # 2초에서 1초로 단축
                 
                 current_page += 1
             

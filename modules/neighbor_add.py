@@ -15,11 +15,12 @@ class NeighborAddAutomation:
 
     def search_blogs(self, keyword, count):
         """키워드로 블로그 검색하여 타겟 목록 확보 (스크롤 처리 포함)"""
-        max_count = min(count, self.config.get('max_action_per_run', 50))
+        # 사용자 입력을 우선시하되, 안전상 최대 100개로 제한
+        max_count = min(count, 100)  # 설정 파일 제한 제거, 사용자 입력 우선
         search_url = f"https://search.naver.com/search.naver?ssc=tab.blog.all&query={keyword}&sm=tab_opt&nso=so%3Ar%2Cp%3A1m"
         
-        self.logger.log(f"[서이추] 키워드 '{keyword}' 검색 시작")
-        print(f"\n🔍 '{keyword}' 키워드로 블로그 검색 중...")
+        self.logger.log(f"[서이추] 키워드 '{keyword}' 검색 시작 (목표: {max_count}개)")
+        print(f"\n🔍 '{keyword}' 키워드로 블로그 검색 중... (목표: {max_count}개)")
         
         self.driver.get(search_url)
         wait_time = self.random_wait(1, 2)  # 페이지 로딩 대기 1-2초 랜덤
@@ -29,10 +30,12 @@ class NeighborAddAutomation:
         extracted_urls = set()  # 중복 제거를 위한 set
         
         try:
-            # 스크롤 시도 횟수 제한
-            max_scroll_attempts = 10
+            # 스크롤 시도 횟수를 목표 개수에 따라 조정
+            max_scroll_attempts = min(20, max(10, max_count // 5))  # 목표가 클수록 더 많이 스크롤
             scroll_attempts = 0
             no_new_content_count = 0
+            
+            print(f"    📈 최대 스크롤 시도: {max_scroll_attempts}회")
             
             while len(self.blog_links) < max_count and scroll_attempts < max_scroll_attempts:
                 # 현재 페이지에서 블로그 링크 추출
@@ -53,14 +56,14 @@ class NeighborAddAutomation:
                     except:
                         continue
                 
-                print(f"    📊 현재까지 추출된 블로그: {len(self.blog_links)}개")
+                print(f"    📊 현재까지 추출된 블로그: {len(self.blog_links)}개 / 목표: {max_count}개")
                 
                 # 목표 개수에 도달했으면 중단
                 if len(self.blog_links) >= max_count:
                     print(f"    ✅ 목표 개수({max_count}개) 도달!")
                     break
                 
-                # 30개 이상 필요하거나 아직 목표에 도달하지 못한 경우 스크롤
+                # 목표에 도달하지 못한 경우 스크롤 계속
                 if len(self.blog_links) < max_count:
                     # 현재 스크롤 위치 저장
                     last_height = self.driver.execute_script("return document.body.scrollHeight")
@@ -79,12 +82,16 @@ class NeighborAddAutomation:
                     # 더 이상 새로운 콘텐츠가 없는지 확인
                     if new_height == last_height and not new_links_found:
                         no_new_content_count += 1
-                        print(f"    ⚠️  새로운 콘텐츠 없음 ({no_new_content_count}/3)")
+                        print(f"    ⚠️  새로운 콘텐츠 없음 ({no_new_content_count}/5)")  # 5번까지 시도
                         
-                        # 3번 연속으로 새로운 콘텐츠가 없으면 중단
-                        if no_new_content_count >= 3:
-                            print(f"    ⚠️  더 이상 새로운 블로그를 찾을 수 없습니다.")
-                            break
+                        # 5번 연속으로 새로운 콘텐츠가 없으면 다른 검색 옵션 시도
+                        if no_new_content_count >= 5:
+                            print(f"    🔄 다른 검색 옵션으로 추가 검색 시도...")
+                            if self._try_additional_search(keyword, max_count, extracted_urls):
+                                no_new_content_count = 0  # 추가 검색 성공 시 카운트 리셋
+                            else:
+                                print(f"    ⚠️  더 이상 새로운 블로그를 찾을 수 없습니다.")
+                                break
                     else:
                         no_new_content_count = 0
                     
@@ -98,7 +105,10 @@ class NeighborAddAutomation:
             # 결과 요약
             if len(self.blog_links) < max_count:
                 print(f"    ⚠️  요청한 {max_count}개 중 {len(self.blog_links)}개만 찾을 수 있었습니다.")
-            
+                print(f"    💡 더 많은 결과를 원한다면 다른 키워드를 시도해보세요.")
+            else:
+                print(f"    🎉 목표한 {max_count}개를 모두 찾았습니다!")
+                    
             self.logger.log(f"[서이추] 추출된 블로그 수: {len(self.blog_links)}")
             print(f"✅ {len(self.blog_links)}개의 타겟 블로그를 찾았습니다.")
             return len(self.blog_links) > 0
@@ -106,6 +116,49 @@ class NeighborAddAutomation:
         except Exception as e:
             self.logger.log(f"[서이추] 블로그 링크 추출 실패: {e}")
             print(f"❌ 블로그 검색 실패: {e}")
+            return False
+
+    def _try_additional_search(self, keyword, max_count, extracted_urls):
+        """추가 검색 시도 (다른 정렬 옵션 사용)"""
+        try:
+            # 현재 블로그 개수 저장
+            current_count = len(self.blog_links)
+            
+            # 다른 정렬 옵션으로 검색 (최신순 -> 정확도순)
+            additional_search_url = f"https://search.naver.com/search.naver?ssc=tab.blog.all&query={keyword}&sm=tab_opt"
+            
+            print(f"    🔄 정확도순으로 추가 검색...")
+            self.driver.get(additional_search_url)
+            wait_time = self.random_wait(1, 2)
+            print(f"    ⏰ 추가 검색 페이지 로딩 대기: {wait_time:.1f}초")
+            
+            # 추가 검색에서 블로그 링크 추출
+            elements = self.driver.find_elements(By.CSS_SELECTOR, 'div.title_area a.title_link')
+            
+            new_links_added = 0
+            for el in elements:
+                try:
+                    href = el.get_attribute('href')
+                    if href and 'blog.naver.com' in href and href not in extracted_urls:
+                        extracted_urls.add(href)
+                        self.blog_links.append(href)
+                        new_links_added += 1
+                        
+                        # 목표 개수에 도달하면 중단
+                        if len(self.blog_links) >= max_count:
+                            break
+                except:
+                    continue
+            
+            if new_links_added > 0:
+                print(f"    ✅ 추가 검색으로 {new_links_added}개 더 발견!")
+                return True
+            else:
+                print(f"    ❌ 추가 검색에서도 새로운 블로그를 찾지 못했습니다.")
+                return False
+                
+        except Exception as e:
+            print(f"    ❌ 추가 검색 중 오류: {e}")
             return False
 
     def find_buddy_button(self):
@@ -186,7 +239,7 @@ class NeighborAddAutomation:
                 self.logger.log(f"[서이추] 세션 연결 끊어짐: {e}")
                 return "fail"
             
-            # 팝업 창 전체 내용에서 이웃수 5000명 제한 메시지 확인
+            # 팝업 창 전체 내용에서 제한 메시지 확인
             try:
                 page_text = self.driver.page_source
                 if "이웃수 5000명 초과" in page_text or ("5000명" in page_text and "초과" in page_text) or ("이웃을 더 맺을 수 없습니다" in page_text):
@@ -200,6 +253,17 @@ class NeighborAddAutomation:
                         pass
                     self.driver.switch_to.window(main_window)
                     return "neighbor_limit"
+                elif "더 이상 이웃을 추가할 수 없습니다" in page_text or "1일동안 추가할 수 있는 이웃수를 제한" in page_text or ("하루" in page_text and "제한" in page_text):
+                    print("    🚫 1일 이웃추가 제한 도달! (페이지 내용)")
+                    self.logger.log("[서이추] 1일 이웃추가 제한 도달 (페이지 내용)")
+                    
+                    # 팝업 창 닫고 메인 창으로 복귀
+                    try:
+                        self.driver.close()
+                    except:
+                        pass
+                    self.driver.switch_to.window(main_window)
+                    return "limit"
             except Exception as e:
                 print(f"    ⚠️  페이지 내용 확인 중 오류: {e}")
                 self.logger.log(f"[서이추] 페이지 내용 확인 오류: {e}")
@@ -240,54 +304,72 @@ class NeighborAddAutomation:
                 except Exception as e:
                     print(f"    ⚠️  서로이웃 라디오 버튼 확인 중 오류: {e}")
                     self.logger.log(f"[서이추] 서로이웃 라디오 버튼 확인 오류: {e}")
-                
-                # 방법 2: notice 메시지 확인
-                try:
-                    notice = self.driver.find_element(By.CSS_SELECTOR, 'p.notice')
-                    if notice:
-                        notice_text = notice.text
-                        if "서로이웃 신청을 받지 않는" in notice_text:
-                            print("    ⏭️  서로이웃을 받지 않는 블로거입니다. (notice 메시지)")
-                            self.logger.log("[서이추] 서로이웃을 받지 않는 블로거 (notice)")
-                            
-                            # 취소 버튼 클릭
-                            try:
-                                cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
-                                cancel_btn.click()
-                                print("    ✅ 취소 버튼 클릭")
-                                wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
-                            except Exception as cancel_e:
-                                print(f"    ⚠️  취소 버튼 클릭 실패: {cancel_e}")
-                                # 취소 버튼이 없으면 그냥 창 닫기
-                                self.driver.close()
-                            
-                            # 메인 창으로 복귀
-                            self.driver.switch_to.window(main_window)
-                            return "pass"
-                        elif "이웃수 5000명 초과" in notice_text or ("5000명" in notice_text and "초과" in notice_text) or ("이웃을 더 맺을 수 없습니다" in notice_text):
-                            print("    🚫 이웃수 5000명 초과로 이웃 추가 불가! (notice 메시지)")
-                            self.logger.log("[서이추] 이웃수 5000명 초과 (notice)")
-                            
-                            # 취소 버튼 클릭
-                            try:
-                                cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
-                                cancel_btn.click()
-                                print("    ✅ 취소 버튼 클릭")
-                                wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
-                            except Exception as cancel_e:
-                                print(f"    ⚠️  취소 버튼 클릭 실패: {cancel_e}")
-                                # 취소 버튼이 없으면 그냥 창 닫기
-                                self.driver.close()
-                            
-                            # 메인 창으로 복귀
-                            self.driver.switch_to.window(main_window)
-                            return "neighbor_limit"
-                except NoSuchElementException:
-                    # notice 메시지가 없으면 정상 진행
-                    pass
-                except Exception as e:
-                    print(f"    ⚠️  notice 메시지 확인 중 오류: {e}")
-                    self.logger.log(f"[서이추] notice 메시지 확인 오류: {e}")
+                        
+                    # 방법 2: notice 메시지 확인
+                    try:
+                        notice = self.driver.find_element(By.CSS_SELECTOR, 'p.notice')
+                        if notice:
+                            notice_text = notice.text
+                            if "서로이웃 신청을 받지 않는" in notice_text:
+                                print("    ⏭️  서로이웃을 받지 않는 블로거입니다. (notice 메시지)")
+                                self.logger.log("[서이추] 서로이웃을 받지 않는 블로거 (notice)")
+                                
+                                # 취소 버튼 클릭
+                                try:
+                                    cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
+                                    cancel_btn.click()
+                                    print("    ✅ 취소 버튼 클릭")
+                                    wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
+                                except Exception as cancel_e:
+                                    print(f"    ⚠️  취소 버튼 클릭 실패: {cancel_e}")
+                                    # 취소 버튼이 없으면 그냥 창 닫기
+                                    self.driver.close()
+                                
+                                # 메인 창으로 복귀
+                                self.driver.switch_to.window(main_window)
+                                return "pass"
+                            elif "이웃수 5000명 초과" in notice_text or ("5000명" in notice_text and "초과" in notice_text) or ("이웃을 더 맺을 수 없습니다" in notice_text):
+                                print("    🚫 이웃수 5000명 초과로 이웃 추가 불가! (notice 메시지)")
+                                self.logger.log("[서이추] 이웃수 5000명 초과 (notice)")
+                                
+                                # 취소 버튼 클릭
+                                try:
+                                    cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
+                                    cancel_btn.click()
+                                    print("    ✅ 취소 버튼 클릭")
+                                    wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
+                                except Exception as cancel_e:
+                                    print(f"    ⚠️  취소 버튼 클릭 실패: {cancel_e}")
+                                    # 취소 버튼이 없으면 그냥 창 닫기
+                                    self.driver.close()
+                                
+                                # 메인 창으로 복귀
+                                self.driver.switch_to.window(main_window)
+                                return "neighbor_limit"
+                            elif "더 이상 이웃을 추가할 수 없습니다" in notice_text or "1일동안 추가할 수 있는 이웃수를 제한" in notice_text or ("하루" in notice_text and "제한" in notice_text):
+                                print("    🚫 1일 이웃추가 제한 도달! (notice 메시지)")
+                                self.logger.log("[서이추] 1일 이웃추가 제한 도달 (notice)")
+                                
+                                # 취소 버튼 클릭
+                                try:
+                                    cancel_btn = self.driver.find_element(By.CSS_SELECTOR, 'a.button_cancel')
+                                    cancel_btn.click()
+                                    print("    ✅ 취소 버튼 클릭")
+                                    wait_time = self.random_wait(0.5, 1)  # 취소 후 대기 0.5-1초로 단축
+                                except Exception as cancel_e:
+                                    print(f"    ⚠️  취소 버튼 클릭 실패: {cancel_e}")
+                                    # 취소 버튼이 없으면 그냥 창 닫기
+                                    self.driver.close()
+                                
+                                # 메인 창으로 복귀
+                                self.driver.switch_to.window(main_window)
+                                return "limit"
+                    except NoSuchElementException:
+                        # notice 메시지가 없으면 정상 진행
+                        pass
+                    except Exception as e:
+                        print(f"    ⚠️  notice 메시지 확인 중 오류: {e}")
+                        self.logger.log(f"[서이추] notice 메시지 확인 오류: {e}")
                 
                 # 서로이웃이 가능한 경우 진행
                 # 실제 HTML 구조에 맞게 서로이웃 라디오 버튼 선택
@@ -324,18 +406,18 @@ class NeighborAddAutomation:
                         # 방법 3: JavaScript로 선택
                         try:
                             js_result = self.driver.execute_script("""
-                                var radio = document.getElementById('each_buddy_add');
-                                if (radio && !radio.disabled) {
-                                    radio.checked = true;
-                                    radio.click();
-                                    
-                                    // change 이벤트 발생
-                                    var event = new Event('change', { bubbles: true });
-                                    radio.dispatchEvent(event);
+                            var radio = document.getElementById('each_buddy_add');
+                            if (radio && !radio.disabled) {
+                                radio.checked = true;
+                                radio.click();
+                                
+                                // change 이벤트 발생
+                                var event = new Event('change', { bubbles: true });
+                                radio.dispatchEvent(event);
                                     return true;
-                                }
+                            }
                                 return false;
-                            """)
+                        """)
                             if js_result:
                                 print("    ✅ 서로이웃 옵션 선택 (JavaScript)")
                                 self.logger.log("[서이추] 서로이웃 옵션 선택 (JavaScript)")
@@ -420,6 +502,38 @@ class NeighborAddAutomation:
                         except:
                             pass
                     return "pass"
+                elif '더 이상 이웃을 추가할 수 없습니다' in alert_text or '1일동안 추가할 수 있는 이웃수를 제한' in alert_text or ('하루' in alert_text and '제한' in alert_text):
+                    alert.accept()
+                    print("    🚫 1일 이웃추가 제한 도달!")
+                    self.logger.log("[서이추] 1일 이웃추가 제한 도달")
+                    # 팝업 창 안전하게 닫고 메인 창으로 돌아가기
+                    try:
+                        if len(self.driver.window_handles) > 1:
+                            self.driver.close()
+                        self.driver.switch_to.window(main_window)
+                    except Exception as e:
+                        self.logger.log(f"[서이추] 창 전환 중 오류 (무시): {e}")
+                        try:
+                            self.driver.switch_to.window(main_window)
+                        except:
+                            pass
+                    return "limit"
+                elif '이웃수 5000명 초과' in alert_text or ('5000명' in alert_text and '초과' in alert_text) or ('이웃을 더 맺을 수 없습니다' in alert_text):
+                    alert.accept()
+                    print("    🚫 이웃수 5000명 초과로 이웃 추가 불가!")
+                    self.logger.log("[서이추] 이웃수 5000명 초과로 이웃 추가 불가")
+                    # 팝업 창 안전하게 닫고 메인 창으로 돌아가기
+                    try:
+                        if len(self.driver.window_handles) > 1:
+                            self.driver.close()
+                        self.driver.switch_to.window(main_window)
+                    except Exception as e:
+                        self.logger.log(f"[서이추] 창 전환 중 오류 (무시): {e}")
+                        try:
+                            self.driver.switch_to.window(main_window)
+                        except:
+                            pass
+                    return "neighbor_limit"
                 else:
                     alert.accept()
                     print(f"    ⚠️  예상치 못한 알림창: {alert_text}")
@@ -721,6 +835,50 @@ class NeighborAddAutomation:
         if not self.search_blogs(keyword, count):
             print("\n❌ 블로그 검색에 실패했습니다.")
             return
+        
+        # 검색 결과가 목표보다 적을 때 사용자 선택
+        if len(self.blog_links) < count:
+            print(f"\n⚠️  검색 결과: {len(self.blog_links)}개 (목표: {count}개)")
+            print(f"🤔 찾은 블로그가 목표보다 적습니다.")
+            print(f"")
+            print(f"선택하세요:")
+            print(f"1. 찾은 {len(self.blog_links)}개로 진행")
+            print(f"2. 다른 키워드로 다시 검색")
+            print(f"3. 취소")
+            
+            while True:
+                try:
+                    choice = input("번호를 입력하세요 (1-3): ").strip()
+                    if choice == "1":
+                        print(f"✅ {len(self.blog_links)}개 블로그로 진행합니다.")
+                        break
+                    elif choice == "2":
+                        new_keyword = input("새로운 키워드를 입력하세요: ").strip()
+                        if new_keyword:
+                            print(f"🔍 '{new_keyword}' 키워드로 다시 검색합니다...")
+                            if self.search_blogs(new_keyword, count):
+                                keyword = new_keyword  # 키워드 업데이트
+                                if len(self.blog_links) >= count:
+                                    print(f"🎉 목표 {count}개를 모두 찾았습니다!")
+                                    break
+                                else:
+                                    print(f"⚠️  여전히 {len(self.blog_links)}개만 찾았습니다.")
+                                    continue
+                            else:
+                                print("❌ 새로운 키워드로도 검색에 실패했습니다.")
+                                return
+                        else:
+                            print("❌ 키워드를 입력해주세요.")
+                            continue
+                    elif choice == "3":
+                        print("❌ 서이추 자동화를 취소합니다.")
+                        return
+                    else:
+                        print("❌ 1, 2, 3 중에서 선택해주세요.")
+                        continue
+                except KeyboardInterrupt:
+                    print("\n❌ 사용자가 작업을 취소했습니다.")
+                    return
                 
         # 2. 메시지 파일 확인
         try:
@@ -735,6 +893,7 @@ class NeighborAddAutomation:
             
         # 3. 이웃추가 작업
         print(f"\n📋 이웃추가 작업을 시작합니다...")
+        print(f"📊 처리할 블로그: {len(self.blog_links)}개")
         print(f"{'─'*50}")
         
         for idx, blog_url in enumerate(self.blog_links):
@@ -775,7 +934,7 @@ class NeighborAddAutomation:
                 
             # 진행상황 표시 (PRD 명세)
             total = success + fail + passed
-            print(f"📊 진행상황: {total}/{count} 완료 (성공: {success}, 실패: {fail}, pass: {passed})")
+            print(f"📊 진행상황: {total}/{len(self.blog_links)} 완료 (성공: {success}, 실패: {fail}, pass: {passed})")
             
             # 각 블로그 처리에서 이미 5-10초 대기가 포함되므로 추가 대기 불필요
             # 바로 다음 블로그로 진행
@@ -787,11 +946,15 @@ class NeighborAddAutomation:
         print(f"✅ 성공: {success}명")
         print(f"❌ 실패: {fail}명")
         print(f"⏭️  패스: {passed}명")
-        print(f"📊 총계: {success + fail + passed}/{count}명")
+        print(f"📊 총계: {success + fail + passed}/{len(self.blog_links)}명")
         
-        # 제한 때문에 중단된 경우가 아니라면 정상 완료 메시지
-        if success + fail + passed == len(self.blog_links):
-            print(f"\n🎉 모든 타겟 블로그 처리가 완료되었습니다!")
+        # 목표 달성 여부 확인
+        if success >= count:
+            print(f"\n🎉 목표 {count}명을 달성했습니다!")
+        elif success + fail + passed == len(self.blog_links):
+            print(f"\n🎯 모든 타겟 블로그 처리가 완료되었습니다!")
+            if success < count:
+                print(f"💡 목표 {count}명 중 {success}명 성공했습니다.")
         else:
             print(f"\n⚠️  제한으로 인해 작업이 중단되었습니다.")
             print(f"📅 1일 제한의 경우 내일 다시 시도하거나, 이웃수 5000명 초과의 경우 기존 이웃 정리 후 시도해주세요!")
