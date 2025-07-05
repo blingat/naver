@@ -519,9 +519,12 @@ class CommentAutomation:
             except:
                 pass
     
-    def process_single_post(self, post_info):
-        """단일 게시글 처리"""
+    def process_single_post(self, post_info, retry_count=0):
+        """단일 게시글 처리 - 재시도 로직 추가"""
         import time
+        
+        # 최대 재시도 횟수
+        MAX_RETRIES = 2
         
         # 개별 게시글 처리 시작 시간
         post_start_time = time.time()
@@ -530,7 +533,25 @@ class CommentAutomation:
             url = post_info['url']
             title = post_info['title']
             
-            print(f"   📝 처리 중: {title}")
+            if retry_count == 0:  # 첫 시도일 때만 출력
+                print(f"   📝 처리 중: {title}")
+            
+            # Chrome 연결 상태 확인
+            if not self.check_driver_connection():
+                print("     ⚠️  Chrome 연결 끊어짐 감지")
+                self.logger.log("[댓글자동화] Chrome 연결 끊어짐 감지")
+                
+                if retry_count < MAX_RETRIES:
+                    print(f"     🔄 Chrome 재시작 시도 ({retry_count + 1}/{MAX_RETRIES})")
+                    if self.restart_driver():
+                        print(f"     ✅ Chrome 재시작 성공, 재시도 중...")
+                        return self.process_single_post(post_info, retry_count + 1)
+                    else:
+                        print(f"     ❌ Chrome 재시작 실패")
+                        return "fail", "Chrome 재시작 실패"
+                else:
+                    print(f"     ❌ 최대 재시도 횟수 초과")
+                    return "fail", "최대 재시도 횟수 초과"
             
             # 이미 댓글 작성한 글인지 확인
             if self.is_already_commented(url):
@@ -579,6 +600,13 @@ class CommentAutomation:
             error_msg = f"게시글 처리 오류: {e}"
             print(f"     ❌ {error_msg} - {post_duration:.1f}초")
             self.logger.log(f"[댓글자동화] {error_msg} | {post_duration:.1f}초")
+            
+            # 연결 끊어짐으로 인한 실패인지 확인
+            if ("connection" in str(e).lower() or "10061" in str(e) or "10054" in str(e)) and retry_count < MAX_RETRIES:
+                print(f"     🔄 연결 오류로 인한 재시도 ({retry_count + 1}/{MAX_RETRIES})")
+                if self.restart_driver():
+                    return self.process_single_post(post_info, retry_count + 1)
+            
             return "fail", error_msg
     
     def run_comment_automation(self, target_count, start_page):
@@ -689,3 +717,56 @@ class CommentAutomation:
         self.logger.log("[댓글] 댓글 자동화 시작")
         print("[댓글] 이 기능은 현재 개발 중입니다.")
         return 
+
+    def check_driver_connection(self):
+        """드라이버 연결 상태 확인"""
+        try:
+            self.driver.current_url
+            return True
+        except Exception:
+            return False
+    
+    def restart_driver(self):
+        """드라이버 재시작"""
+        try:
+            print("    🔄 Chrome 브라우저 재시작 중...")
+            self.logger.log("[댓글자동화] Chrome 브라우저 재시작 시도")
+            
+            # 기존 드라이버 종료
+            try:
+                self.driver.quit()
+            except:
+                pass
+            
+            # 새 드라이버 시작 (ChromeSetup 사용)
+            from utils.chrome_setup import ChromeSetup
+            chrome_setup = ChromeSetup()
+            self.driver = chrome_setup.setup_driver()
+            
+            if self.driver:
+                print("    ✅ Chrome 브라우저 재시작 완료")
+                self.logger.log("[댓글자동화] Chrome 브라우저 재시작 성공")
+                
+                # WebDriverWait 재초기화
+                self.wait = WebDriverWait(self.driver, 10)
+                
+                # 네이버 로그인 상태 복구
+                from modules.login import NaverLogin
+                naver_login = NaverLogin(self.driver, self.logger, self.config)
+                if naver_login.login():
+                    print("    ✅ 로그인 상태 복구 완료")
+                    self.logger.log("[댓글자동화] 로그인 상태 복구 성공")
+                    return True
+                else:
+                    print("    ❌ 로그인 상태 복구 실패")
+                    self.logger.log("[댓글자동화] 로그인 상태 복구 실패")
+                    return False
+            else:
+                print("    ❌ Chrome 브라우저 재시작 실패")
+                self.logger.log("[댓글자동화] Chrome 브라우저 재시작 실패")
+                return False
+                
+        except Exception as e:
+            print(f"    ❌ Chrome 브라우저 재시작 중 오류: {e}")
+            self.logger.log(f"[댓글자동화] Chrome 브라우저 재시작 오류: {e}")
+            return False 

@@ -1,8 +1,9 @@
-2025/07/01-22:51:04.809 217c Reusing MANIFEST C:\_KKK\Coding\250701\naver\chrome_profile\Default\Session Storage/MANIFEST-000001
-2025/07/01-22:51:04.810 217c Recovering log #158
-2025/07/01-22:51:04.812 217c Level-0 table #162: started
-2025/07/01-22:51:04.823 217c Level-0 table #162: 128178 bytes OK
-2025/07/01-22:51:04.829 217c Delete type=0 #158
-2025/07/01-22:53:14.659 2df4 Level-0 table #165: started
-2025/07/01-22:53:14.667 2df4 Level-0 table #165: 132856 bytes OK
-2025/07/01-22:53:14.669 2df4 Delete type=0 #163
+2025/07/05-09:22:44.846 41e4 Reusing MANIFEST C:\_KKK\Coding\250701\naver\chrome_profile\Default\Session Storage/MANIFEST-000001
+2025/07/05-09:22:44.854 41e4 Recovering log #633
+2025/07/05-09:22:44.858 41e4 Reusing old log C:\_KKK\Coding\250701\naver\chrome_profile\Default\Session Storage/000633.log 
+2025/07/05-09:24:43.906 3150 Level-0 table #637: started
+2025/07/05-09:24:43.920 3150 Level-0 table #637: 118668 bytes OK
+2025/07/05-09:24:43.944 3150 Delete type=0 #633
+2025/07/05-09:38:25.936 3150 Level-0 table #639: started
+2025/07/05-09:38:25.961 3150 Level-0 table #639: 940444 bytes OK
+2025/07/05-09:38:25.966 3150 Delete type=0 #636

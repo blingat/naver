@@ -554,8 +554,6 @@ class NeighborAddAutomation:
                 msg_box.send_keys(message)
                 print("    ✅ 메시지 입력 완료")
                 self.logger.log("[서이추] 메시지 입력 완료")
-                wait_time = self.random_wait(1, 2)
-                print(f"    ⏰ {wait_time:.1f}초 대기")
                 
             except TimeoutException:
                 print("    ❌ 메시지 입력창을 찾을 수 없습니다.")
@@ -579,8 +577,7 @@ class NeighborAddAutomation:
                 final_btn.click()
                 print("    ✅ 서로이웃 신청 완료!")
                 self.logger.log("[서이추] 최종 다음 버튼 클릭")
-                wait_time = self.random_wait(1, 2)  # 처리 완료 대기
-                print(f"    ⏰ 처리 완료 대기: {wait_time:.1f}초")
+                time.sleep(0.5)  # 최소한의 처리 완료 대기
                 
             except TimeoutException:
                 print("    ❌ 최종 다음 버튼을 찾을 수 없습니다.")
@@ -611,6 +608,9 @@ class NeighborAddAutomation:
                 elif '이웃수 5000명 초과' in alert_text or ('5000명' in alert_text and '초과' in alert_text) or ('이웃을 더 맺을 수 없습니다' in alert_text):
                     print("    🚫 이웃수 5000명 초과로 이웃 추가 불가!")
                     result = "neighbor_limit"
+                elif '스팸 차단' in alert_text or '차단에 의해' in alert_text:
+                    print("    ⏭️  스팸 차단으로 서로이웃 신청 불가 (PASS)")
+                    result = "pass"
                 elif '완료' in alert_text or '신청' in alert_text:
                     print("    🎉 서로이웃 신청 성공!")
                     result = "success"
@@ -656,7 +656,13 @@ class NeighborAddAutomation:
                 except Exception as e:
                     print(f"    ⚠️  완료 페이지 확인 중 오류: {e}")
                     self.logger.log(f"[서이추] 완료 페이지 확인 오류: {e}")
-                    result = "success"
+                    
+                    # 연결 끊어짐 오류인지 확인
+                    if "connection" in str(e).lower() or "10054" in str(e) or "10061" in str(e):
+                        print("    🔄 연결 끊어짐으로 인한 오류 - 성공으로 처리")
+                        result = "success"
+                    else:
+                        result = "success"
             except Exception as e:
                 print(f"    ⚠️  최종 알림창 처리 중 오류: {e}")
                 self.logger.log(f"[서이추] 최종 알림창 처리 오류: {e}")
@@ -709,18 +715,85 @@ class NeighborAddAutomation:
                 
             return "fail"
 
-    def process_blog(self, blog_url, message):
-        """개별 블로그 처리 (1명당 5-10초 총 시간 제어)"""
+    def check_driver_connection(self):
+        """드라이버 연결 상태 확인"""
+        try:
+            self.driver.current_url
+            return True
+        except Exception:
+            return False
+    
+    def restart_driver(self):
+        """드라이버 재시작"""
+        try:
+            print("    🔄 Chrome 브라우저 재시작 중...")
+            self.logger.log("[서이추] Chrome 브라우저 재시작 시도")
+            
+            # 기존 드라이버 종료
+            try:
+                self.driver.quit()
+            except:
+                pass
+            
+            # 새 드라이버 시작 (session.py 사용)
+            from utils.session import setup_driver
+            self.driver = setup_driver(self.config, self.logger)
+            
+            if self.driver:
+                print("    ✅ Chrome 브라우저 재시작 완료")
+                self.logger.log("[서이추] Chrome 브라우저 재시작 성공")
+                
+                # 네이버 로그인 상태 복구
+                from modules.login import NaverLogin
+                naver_login = NaverLogin(self.driver, self.logger, self.config)
+                if naver_login.login():
+                    print("    ✅ 로그인 상태 복구 완료")
+                    self.logger.log("[서이추] 로그인 상태 복구 성공")
+                    return True
+                else:
+                    print("    ❌ 로그인 상태 복구 실패")
+                    self.logger.log("[서이추] 로그인 상태 복구 실패")
+                    return False
+            else:
+                print("    ❌ Chrome 브라우저 재시작 실패")
+                self.logger.log("[서이추] Chrome 브라우저 재시작 실패")
+                return False
+                
+        except Exception as e:
+            print(f"    ❌ Chrome 브라우저 재시작 중 오류: {e}")
+            self.logger.log(f"[서이추] Chrome 브라우저 재시작 오류: {e}")
+            return False
+
+    def process_blog(self, blog_url, message, retry_count=0):
+        """개별 블로그 처리 - 재시도 로직 추가"""
         import time
+        
+        # 최대 재시도 횟수
+        MAX_RETRIES = 2
         
         # 전체 과정 타이머 시작
         start_time = time.time()
-        target_duration = random.uniform(5, 10)  # 5-10초 랜덤 목표 시간
-        print(f"    🎯 목표 처리 시간: {target_duration:.1f}초")
         
-        self.logger.log(f"[서이추] 블로그 처리: {blog_url}")
+        self.logger.log(f"[서이추] 블로그 처리: {blog_url} (재시도: {retry_count})")
         
         try:
+            # Chrome 연결 상태 확인
+            if not self.check_driver_connection():
+                print("    ⚠️  Chrome 연결 끊어짐 감지")
+                self.logger.log("[서이추] Chrome 연결 끊어짐 감지")
+                
+                if retry_count < MAX_RETRIES:
+                    print(f"    🔄 Chrome 재시작 시도 ({retry_count + 1}/{MAX_RETRIES})")
+                    if self.restart_driver():
+                        print(f"    ✅ Chrome 재시작 성공, 재시도 중...")
+                        return self.process_blog(blog_url, message, retry_count + 1)
+                    else:
+                        print(f"    ❌ Chrome 재시작 실패")
+                        return "fail"
+                else:
+                    print(f"    ❌ 최대 재시도 횟수 초과")
+                    return "fail"
+            
             # 블로그 방문
             print(f"    🌐 블로그 접속 중...")
             self.driver.get(blog_url)
@@ -734,13 +807,6 @@ class NeighborAddAutomation:
                 print("    ⏭️  이웃추가 버튼 없음")
                 self.logger.log("[서이추] 이웃추가 버튼 없음 (pass)")
                 
-                # pass인 경우에도 목표 시간 맞추기
-                elapsed_time = time.time() - start_time
-                remaining_time = target_duration - elapsed_time
-                if remaining_time > 0:
-                    print(f"    ⏰ 목표 시간 맞추기 위한 대기: {remaining_time:.1f}초")
-                    time.sleep(remaining_time)
-                
                 total_time = time.time() - start_time
                 print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
                 return "pass"
@@ -748,13 +814,6 @@ class NeighborAddAutomation:
             if '서로이웃' in btn_text:
                 print("    ⏭️  이미 서로이웃")
                 self.logger.log("[서이추] 이미 서로이웃 (pass)")
-                
-                # pass인 경우에도 목표 시간 맞추기
-                elapsed_time = time.time() - start_time
-                remaining_time = target_duration - elapsed_time
-                if remaining_time > 0:
-                    print(f"    ⏰ 목표 시간 맞추기 위한 대기: {remaining_time:.1f}초")
-                    time.sleep(remaining_time)
                 
                 total_time = time.time() - start_time
                 print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
@@ -782,14 +841,6 @@ class NeighborAddAutomation:
                     # 이웃추가 프로세스 진행
                     result = self.process_buddy_add(message)
                     
-                    # 전체 과정 완료 후 남은 시간 계산하여 대기
-                    elapsed_time = time.time() - start_time
-                    remaining_time = target_duration - elapsed_time
-                    
-                    if remaining_time > 0:
-                        print(f"    ⏰ 목표 시간 맞추기 위한 추가 대기: {remaining_time:.1f}초")
-                        time.sleep(remaining_time)
-                    
                     total_time = time.time() - start_time
                     print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
                     
@@ -798,6 +849,14 @@ class NeighborAddAutomation:
                 except Exception as e:
                     self.logger.log(f"[서이추] 버튼 클릭 실패: {e}")
                     print(f"    ❌ 버튼 클릭 실패: {e}")
+                    
+                    # 연결 끊어짐으로 인한 실패인지 확인
+                    if "connection" in str(e).lower() or "10061" in str(e):
+                        if retry_count < MAX_RETRIES:
+                            print(f"    🔄 연결 오류로 인한 재시도 ({retry_count + 1}/{MAX_RETRIES})")
+                            if self.restart_driver():
+                                return self.process_blog(blog_url, message, retry_count + 1)
+                    
                     return "fail"
                     
             return "pass"
@@ -806,12 +865,11 @@ class NeighborAddAutomation:
             self.logger.log(f"[서이추] 블로그 처리 실패: {e}")
             print(f"    ❌ 블로그 처리 실패: {e}")
             
-            # 실패인 경우에도 목표 시간 맞추기
-            elapsed_time = time.time() - start_time
-            remaining_time = target_duration - elapsed_time
-            if remaining_time > 0:
-                print(f"    ⏰ 목표 시간 맞추기 위한 대기: {remaining_time:.1f}초")
-                time.sleep(remaining_time)
+            # 연결 끊어짐으로 인한 실패인지 확인
+            if ("connection" in str(e).lower() or "10061" in str(e) or "10054" in str(e)) and retry_count < MAX_RETRIES:
+                print(f"    🔄 연결 오류로 인한 재시도 ({retry_count + 1}/{MAX_RETRIES})")
+                if self.restart_driver():
+                    return self.process_blog(blog_url, message, retry_count + 1)
             
             total_time = time.time() - start_time
             print(f"    ✅ 총 처리 시간: {total_time:.1f}초")
