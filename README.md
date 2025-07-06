@@ -1,4 +1,4 @@
-# 네이버 블로그 자동화 프로그램 v1.1
+# 네이버 블로그 자동화 프로그램 v1.2
 
 네이버 블로그 운영자의 성장을 위한 완전 자동화 CLI 프로그램입니다.
 
@@ -10,7 +10,30 @@
 4. **Chrome 환경 설정 테스트** ✅
 5. **Gemini/OpenAI API 테스트** ✅
 
-## 최신 업데이트 v1.1
+## 최신 업데이트 v1.2
+
+### 🏗️ 코드 품질 전면 개선 (2025-07-06)
+- **BaseAutomation 클래스 도입**: 모든 자동화 기능의 공통 기능을 상속받아 중복 코드 제거
+  - 안전한 요소 찾기, 에러 처리, 로깅, 창 관리 등 공통 메서드 제공
+  - 일관된 예외 처리 및 재시도 로직 적용
+  - 모든 자동화 클래스에서 공통 기능 재사용
+- **ConfigManager 클래스 구현**: 설정 관리 중앙화 및 점 표기법 지원
+  - `config.get('automation_delay.min_wait')` 형태의 직관적인 설정 접근
+  - 설정 유효성 검사 및 기본값 제공
+  - 하위 호환성 유지를 위한 기존 함수 지원
+- **핸들러 모듈 분리**: main.py 간소화 및 기능별 모듈 분리
+  - `src/handlers/automation_handlers.py`: 자동화 관련 핸들러
+  - `src/handlers/test_handlers.py`: 테스트 관련 핸들러
+  - main.py를 431줄에서 67줄로 대폭 간소화
+- **체계적인 패키지 구조**: 기능별 모듈 분리로 유지보수성 향상
+  - `src/automation/`: 자동화 관련 클래스
+  - `src/utils/`: 유틸리티 함수
+  - `src/config/`: 설정 관리
+  - `src/handlers/`: 핸들러 함수
+  - `data/`: 데이터 파일 (메시지, 댓글 기록, 쿠키 등)
+- **타입 힌트 완전 적용**: 모든 주요 클래스와 함수에 타입 정보 추가
+- **Google 스타일 docstring**: 모든 클래스와 메서드에 상세한 문서화
+- **PEP 8 준수**: 일관된 코딩 스타일 가이드 적용
 
 ### 🚀 Chrome 연결 안정성 대폭 개선 (2025-07-05)
 - **ConnectionResetError(10054) 완전 해결**: 원격 호스트 연결 끊어짐 문제 해결
@@ -113,8 +136,8 @@ cp config.example.json config.json
 - `openai_api_key`: OpenAI API 키 (향후 사용)
 
 ### 4. 메시지 파일
-- **eut_message.txt**: 서이추 신청 시 사용할 메시지 (자동 생성됨)
-- **eut_comment.txt**: 댓글 작성 기록 (자동 생성 및 관리)
+- **data/messages/eut_message.txt**: 서이추 신청 시 사용할 메시지 (자동 생성됨)
+- **data/comments/comment_history.txt**: 댓글 작성 기록 (자동 생성 및 관리)
 
 ## 사용법
 
@@ -153,26 +176,34 @@ cp config.example.json config.json
 ## 파일 구조
 ```
 naver/
-├── main.py                 # 메인 실행 파일
+├── main.py                 # 메인 실행 파일 (67줄로 간소화)
 ├── config.json            # 설정 파일 (사용자 생성)
-├── config.example.json    # 설정 파일 예제
 ├── requirements.txt       # Python 의존성
 ├── README.md             # 이 파일
-├── modules/              # 핵심 모듈
-│   ├── login.py         # 네이버 로그인
-│   ├── neighbor_add.py  # 서이추 자동화
-│   ├── comment.py       # 댓글 자동화
-│   ├── like.py         # 공감 자동화
-│   └── gemini.py       # AI API 연동
-├── utils/               # 유틸리티
-│   ├── chrome_setup.py # Chrome 환경 설정
-│   ├── logger.py       # 로깅
-│   ├── selector.py     # 셀렉터 관리
-│   └── session.py      # 세션 관리
+├── src/                  # 소스 코드 (새로 구조화)
+│   ├── automation/       # 자동화 관련 클래스
+│   │   ├── base_automation.py  # 공통 기능 베이스 클래스
+│   │   ├── neighbor_add.py     # 서이추 자동화
+│   │   └── comment.py          # 댓글 자동화
+│   ├── utils/           # 유틸리티 함수
+│   │   ├── login.py     # 네이버 로그인
+│   │   ├── gemini.py    # AI API 연동
+│   │   ├── chrome_setup.py  # Chrome 환경 설정
+│   │   ├── logger.py    # 로깅
+│   │   └── selector.py  # 셀렉터 관리
+│   ├── config/          # 설정 관리
+│   │   ├── config_manager.py  # 설정 중앙 관리
+│   │   └── __init__.py
+│   └── handlers/        # 핸들러 함수
+│       ├── automation_handlers.py  # 자동화 핸들러
+│       └── test_handlers.py        # 테스트 핸들러
+├── data/                # 데이터 파일 (자동 생성)
+│   ├── messages/        # 메시지 파일
+│   ├── comments/        # 댓글 기록
+│   ├── cookies/         # 쿠키 저장소
+│   └── logs/           # 로그 파일
 ├── chrome_profile/      # Chrome 프로필 (자동 생성)
-├── cookies/            # 쿠키 저장소 (자동 생성)
-├── eut_message.txt     # 서이추 메시지 (자동 생성)
-└── eut_comment.txt     # 댓글 기록 (자동 생성)
+└── backup/             # 백업 파일
 ```
 
 ## 문제 해결
@@ -203,6 +234,15 @@ naver/
 - **이웃수 5000명 제한**: 네이버 이웃수 5000명 초과 시 자동 감지하고 기존 이웃 정리 안내
 
 ## 개발 히스토리
+
+### v1.2 (2025-07-06)
+- **코드 품질 전면 개선**: BaseAutomation 클래스 도입으로 중복 코드 제거
+- **ConfigManager 구현**: 설정 관리 중앙화 및 점 표기법 지원
+- **핸들러 모듈 분리**: main.py 간소화 (431줄 → 67줄)
+- **체계적인 패키지 구조**: 기능별 모듈 분리로 유지보수성 향상
+- **타입 힌트 완전 적용**: 모든 주요 클래스와 함수에 타입 정보 추가
+- **Google 스타일 docstring**: 상세한 문서화
+- **PEP 8 준수**: 일관된 코딩 스타일 가이드 적용
 
 ### v1.1 (2025-07-05)
 - **Chrome 연결 안정성 완전 해결**: ConnectionResetError(10054) 문제 완전 해결

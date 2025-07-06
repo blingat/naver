@@ -1,0 +1,11 @@
+{
+  "openai_api_key": "여기에 OpenAI API 키 입력",
+  "claude_api_key": "여기에 Claude API 키 입력", 
+  "gemini_api_key": "여기에 Gemini API 키 입력",
+  "chrome_profile_path": "",
+  "chromedriver_path": "",
+  "max_action_per_run": 50,
+  "window_width": 1100,
+  "window_height": 1100,
+  "window_scale": 0.9
+} 
