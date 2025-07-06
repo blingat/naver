@@ -1,17 +1,54 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
+# Chrome 프로필 및 캐시
+chrome_profile/
+chromedriver.exe
 
-# IDE
-.vscode/
-.idea/
+# 로그 파일
+*.log
+log.txt
+*.txt.bak
+
+# 설정 파일 (예제 제외)
+config.json
+*.json.bak
+
+# 쿠키 파일
+cookies/
 
 # 임시 파일
-TEMP.md
-PRD.md
-debug_*.py
+*.tmp
+*.temp
+
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# 가상환경
+venv/
+env/
+ENV/
+
+# IDE 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 백업 파일
+backup/
+modules/
+utils/
+
+# 메시지 파일 (루트 레벨)
+eut_*.txt
 
 # OS 관련
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# 데이터 파일 중 일부 (개인정보 포함될 수 있는 것들)
+data/cookies/*.json
+data/logs/*.txt 
